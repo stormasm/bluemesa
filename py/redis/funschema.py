@@ -18,8 +18,8 @@ def getfiles(mypath):
     onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
     return(onlyfiles)
 
-def write_data_to_redis_list(symbol,index,data):
-    rc.rpush(symbol,data)
+def write_data_to_redis_list(schema,index,data):
+    rc.rpush(schema,data)
 
 def write_schema_to_redis(path):
     rediskey = get_filename_from_path(path)
@@ -30,7 +30,7 @@ def write_schema_to_redis(path):
         next(funreader)
         for row in funreader:
             print(row[0],row[2])
-            #write_data_to_redis_list(rediskey,row[0],row[2])
+            write_data_to_redis_list(rediskey,row[0],row[2])
 
 if __name__ == "__main__":
     path = '/j/tmp32/bluemesa/doc/schema-fun.csv'
