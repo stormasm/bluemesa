@@ -1,6 +1,6 @@
 
 This code requires that you have
-[redis](redis.io)
+[redis](http://redis.io)
 installed on your
 system and that the redis server is up and running...
 
