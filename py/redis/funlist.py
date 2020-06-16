@@ -19,17 +19,19 @@ def getfiles(mypath):
     return(onlyfiles)
 
 def write_data_to_redis_list(symbol,index,data):
-    rc.lpush(symbol,data)
+    rc.rpush(symbol,data)
 
 def write_file_to_redis(filename):
     symbol = get_symbol_from_filename(filename)
+    rediskey = symbol + "-fun"
     print(symbol)
+    rc.delete(rediskey)
     with open(filename, newline='') as csvfile:
         funreader = csv.reader(csvfile, delimiter=',')
         next(funreader)
         for row in funreader:
-            print(row[0],row[2])
-            write_data_to_redis_list(symbol,row[0],row[2])
+            #print(row[0],row[2])
+            write_data_to_redis_list(rediskey,row[0],row[2])
 
 if __name__ == "__main__":
     path = '/j/tmp32/bluemesa/tmp'
