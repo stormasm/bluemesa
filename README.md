@@ -37,4 +37,5 @@ Now run
 python funschema.py
 ```
 
-The schema data will not be loaded into Redis as well...
+The schema data will now be loaded into Redis as well in the redis
+key **schema-fun**
