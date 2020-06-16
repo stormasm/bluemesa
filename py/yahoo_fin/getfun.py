@@ -20,17 +20,19 @@ def build_file_name(symbol):
     filename = f"{symbol}-fun-{day}.csv"
     return(filename)
 
-def process(symbols):
+def process(symbols,path):
     for symbol in symbols:
         print(symbol)
         filename = build_file_name(symbol)
         data = get_stats(symbol)
-        data.to_csv(filename)
+        out_file = path + filename
+        data.to_csv(out_file)
 
 if __name__ == "__main__":
-    path = '/j/tmp32/equity-data/symbols/top.txt'
-    symbols = get_symbols(path)
-    process(symbols)
+    path_in  = '/j/tmp32/equity-data/symbols/top.txt'
+    path_out = '/j/tmp32/bluemesa/tmp/'
+    symbols = get_symbols(path_in)
+    process(symbols,path_out)
 
 # This is a Python set which is nice because we can not
 # get any duplication of data...
