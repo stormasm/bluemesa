@@ -1,0 +1,51 @@
+,Attribute,Value
+0,Beta (5Y Monthly),beta
+1,52-Week Change 3,52wk-change
+2,S&P500 52-Week Change 3,52wk-change-sp500
+3,52 Week High 3,52wk-high
+4,52 Week Low 3,52wk-low
+5,50-Day Moving Average 3,50day-moving-avg
+6,200-Day Moving Average 3,200day-moving-avg
+7,Avg Vol (3 month) 3,avg-vol-3month
+8,Avg Vol (10 day) 3,avg-vol-10day
+9,Shares Outstanding 5,shares-outstanding
+10,Float,float
+11,% Held by Insiders 1,insider-pct
+12,% Held by Institutions 1,institutional-pct
+13,"Shares Short (May 28, 2020) 4",shares-short
+14,"Short Ratio (May 28, 2020) 4",short-ratio
+15,"Short % of Float (May 28, 2020) 4",short-pct-float
+16,"Short % of Shares Outstanding (May 28, 2020) 4",short-pct-shares-outstanding
+17,"Shares Short (prior month Apr 29, 2020) 4",shares-short
+18,Forward Annual Dividend Rate 4,forward-annual-div
+19,Forward Annual Dividend Yield 4,forward-div
+20,Trailing Annual Dividend Rate 3,trailing-div
+21,Trailing Annual Dividend Yield 3,trailing-annual-div
+22,5 Year Average Dividend Yield 4,5yr-avg-div-yield
+23,Payout Ratio 4,payout-ratio
+24,Dividend Date 3,div-date
+25,Ex-Dividend Date 4,xdiv-date
+26,Last Split Factor 2,last-split-factor
+27,Last Split Date 3,last-split-date
+28,Fiscal Year Ends,fiscal-year-ends
+29,Most Recent Quarter (mrq),most-recent-qtr
+30,Profit Margin,profit-margin
+31,Operating Margin (ttm),operating-margin
+32,Return on Assets (ttm),return-on-assets
+33,Return on Equity (ttm),return-on-equity
+34,Revenue (ttm),revenue
+35,Revenue Per Share (ttm),revenue-per-share
+36,Quarterly Revenue Growth (yoy),quarterly-revenue
+37,Gross Profit (ttm),gross-profit
+38,EBITDA,ebitda
+39,Net Income Avi to Common (ttm),netincome-avail-to-common
+40,Diluted EPS (ttm),diluted-eps
+41,Quarterly Earnings Growth (yoy),qtr-earnings-growth
+42,Total Cash (mrq),total-cash
+43,Total Cash Per Share (mrq),total-cash-per-share
+44,Total Debt (mrq),total-debt
+45,Total Debt/Equity (mrq),total-debit-to-equity
+46,Current Ratio (mrq),current-ratio
+47,Book Value Per Share (mrq),book-value
+48,Operating Cash Flow (ttm),operating-cash-flow
+49,Levered Free Cash Flow (ttm),levered-free-cash-flow
