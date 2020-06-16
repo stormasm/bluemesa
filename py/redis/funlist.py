@@ -1,4 +1,5 @@
 import csv
+import os
 
 from os import listdir
 from os.path import isfile, join
@@ -7,11 +8,19 @@ import redis
 
 rc = redis.Redis(host='localhost', port=6379, db=0)
 
+def get_symbol_from_filename(filename):
+    file = os.path.basename(filename)
+    tokens = file.split('-')
+    symbol = tokens[0]
+    return(symbol)
+
 def getfiles(mypath):
     onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
     return(onlyfiles)
 
 def write_file_to_redis(filename):
+    symbol = get_symbol_from_filename(filename)
+    print(symbol)
     with open(filename, newline='') as csvfile:
         funreader = csv.reader(csvfile, delimiter=',')
         next(funreader)
