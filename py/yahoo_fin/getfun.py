@@ -31,7 +31,7 @@ def process(symbols,path):
 
 if __name__ == "__main__":
     path = os.environ['BMTOP']
-    path_in  = path + '/equity-data/symbols/top.txt'
+    path_in  = path + '/bluemesa/config/symbols/top.txt'
     path_out = path + '/bluemesa/tmp/'
     symbols = get_symbols(path_in)
     process(symbols,path_out)
