@@ -31,9 +31,9 @@ def write_file_to_redis(filename):
     rc.delete(rediskey)
     with open(filename, newline='') as csvfile:
         funreader = csv.reader(csvfile, delimiter=',')
+        # do not read the first line of the csv file
         next(funreader)
         for row in funreader:
-            #print(row[0],row[2])
             write_data_to_redis_list(rediskey,row[0],row[2])
 
 if __name__ == "__main__":

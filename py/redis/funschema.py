@@ -22,6 +22,7 @@ def write_schema_to_redis(path):
     rc.delete(rediskey)
     with open(path, newline='') as csvfile:
         funreader = csv.reader(csvfile, delimiter=',')
+        # do not read the first line of the csv file
         next(funreader)
         for row in funreader:
             print(row[0],row[2])
