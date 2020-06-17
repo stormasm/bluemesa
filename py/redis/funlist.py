@@ -34,7 +34,8 @@ def write_file_to_redis(filename):
             write_data_to_redis_list(rediskey,row[0],row[2])
 
 if __name__ == "__main__":
-    path = '/j/tmp32/bluemesa/tmp'
+    path = os.environ['BMTOP']
+    path = path + '/bluemesa/tmp'
     myfiles = getfiles(path)
     for filename in myfiles:
         file = path + '/' + filename
