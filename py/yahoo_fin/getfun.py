@@ -36,7 +36,7 @@ if __name__ == "__main__":
     symbols = get_symbols(path_in)
     process(symbols,path_out)
 
-# This is a Python set which is nice because we can not
-# get any duplication of data...
+# The variable symbols is always a Python set which is nice
+# because then we will not get any duplication of data
 # symbols = {"ui","psa","ip","t"}
 # symbols.add("nly")
