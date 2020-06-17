@@ -15,8 +15,11 @@ def get_symbol_from_filename(filename):
     return(symbol)
 
 def getfiles(mypath):
-    onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
-    return(onlyfiles)
+    files = set()
+    for file in os.listdir(mypath):
+        if file.endswith(".csv"):
+            files.add(os.path.join(mypath, file))
+    return(files)
 
 def write_data_to_redis_list(symbol,index,data):
     rc.rpush(symbol,data)
@@ -36,7 +39,6 @@ def write_file_to_redis(filename):
 if __name__ == "__main__":
     path = os.environ['BMTOP']
     path = path + '/bluemesa/tmp'
-    myfiles = getfiles(path)
-    for filename in myfiles:
-        file = path + '/' + filename
+    files = getfiles(path)
+    for file in files:
         write_file_to_redis(file)
