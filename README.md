@@ -9,21 +9,8 @@ cd into BMTOP
 git clone this repository
 ```
 
-Create a symbol file with one symbol per line...
-
 ```
-aapl
-amzn
-nflx
-```
-
-Go to the yahoo_fin directory and set the directories:
-* path_in
-* path_out
-in the file **getfun.py**   
-and then run the program
-
-```
+cd bluemesa
 python getfun.py
 ```
 
