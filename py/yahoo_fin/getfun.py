@@ -1,4 +1,5 @@
 import datetime
+import os
 from yahoo_fin.stock_info import get_stats
 
 # This should return a set of symbols
@@ -29,8 +30,9 @@ def process(symbols,path):
         data.to_csv(out_file)
 
 if __name__ == "__main__":
-    path_in  = '/j/tmp32/equity-data/symbols/top.txt'
-    path_out = '/j/tmp32/bluemesa/tmp/'
+    path = os.environ['BMTOP']
+    path_in  = path + '/equity-data/symbols/top.txt'
+    path_out = path + '/bluemesa/tmp/'
     symbols = get_symbols(path_in)
     process(symbols,path_out)
 
