@@ -1,8 +1,13 @@
-
 This code requires that you have
 [redis](http://redis.io)
-installed on your
-system and that the redis server is up and running...
+installed on your system and that the redis server is up and running...
+
+Set an environment variable **BMTOP**
+
+```
+cd into BMTOP
+git clone this repository
+```
 
 Create a symbol file with one symbol per line...
 
@@ -15,7 +20,8 @@ nflx
 Go to the yahoo_fin directory and set the directories:
 * path_in
 * path_out
-in the file **getfun.py** and then run the program
+in the file **getfun.py**   
+and then run the program
 
 ```
 python getfun.py
