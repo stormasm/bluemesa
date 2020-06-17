@@ -34,5 +34,5 @@ def write_schema_to_redis(path):
 
 if __name__ == "__main__":
     path = os.environ['BMTOP']
-    path = path + '/bluemesa/doc/schema-fun.csv'
+    path = path + '/bluemesa/config/schema-fun.csv'
     write_schema_to_redis(path)

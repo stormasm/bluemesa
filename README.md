@@ -10,15 +10,14 @@ git clone this repository
 ```
 
 ```
-cd bluemesa
+cd bluemesa/py/yahoo_fin
 python getfun.py
 ```
 
-Now check and make sure the data written to **path_out** looks
-good and then go ahead and set the same path_out directory in
-redis/funlist.py and then run the program
+Now check and make sure the data written to **bluemesa/tmp** looks good.   
 
 ```
+cd bluemesa/py/redis
 python funlist.py
 ```
 
