@@ -19,15 +19,13 @@ Now check and make sure the data written to **bluemesa/tmp** looks good.
 ```
 cd bluemesa/py/redis
 python funlist.py
-```
-
-Now this data will be written to Redis...
-
-Now run
-
-```
 python funschema.py
 ```
 
-The schema data will now be loaded into Redis as well in the redis
-key **schema-fun**
+Now bring up a redis-client and run the command
+
+```
+keys *
+```
+
+To see how all of your data was written to redis.
