@@ -19,7 +19,6 @@ def write_data_to_redis_list(schema,index,data):
 
 def write_schema_to_redis(path):
     rediskey = get_filename_from_path(path)
-    print(rediskey)
     rc.delete(rediskey)
     with open(path, newline='') as csvfile:
         funreader = csv.reader(csvfile, delimiter=',')
