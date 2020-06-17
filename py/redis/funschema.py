@@ -14,10 +14,6 @@ def get_filename_from_path(path):
     filename = tokens[0]
     return(filename)
 
-def getfiles(mypath):
-    onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
-    return(onlyfiles)
-
 def write_data_to_redis_list(schema,index,data):
     rc.rpush(schema,data)
 
