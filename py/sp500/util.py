@@ -42,13 +42,16 @@ def get_industry_group(symbol):
 if __name__ == "__main__":
     get_symbol_name("fb")
     get_symbol_name("amzn")
+
     myig = "xlc"
     ig = get_industry_group(myig)
     print("\nThe symbols in the " + myig + " industry group")
     print(ig)
+
     print("\nThe Industry Group Symbols")
     symbols = get_industry_group_symbols()
     print(symbols)
+    
     print("\nNumber of symbols in the sp500")
     symbols = get_all_symbols_sp500()
     print(len(symbols))
