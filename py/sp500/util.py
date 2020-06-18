@@ -37,15 +37,18 @@ def get_industry_group(symbol):
         for dict_item in dataList:
           for key in dict_item:
               if key == symbol:
-                  print(key)
                   return(dict_item[key])
 
 if __name__ == "__main__":
     get_symbol_name("fb")
     get_symbol_name("amzn")
-    ig = get_industry_group("xlc")
+    myig = "xlc"
+    ig = get_industry_group(myig)
+    print("\nThe symbols in the " + myig + " industry group")
     print(ig)
+    print("\nThe Industry Group Symbols")
     symbols = get_industry_group_symbols()
     print(symbols)
+    print("\nNumber of symbols in the sp500")
     symbols = get_all_symbols_sp500()
     print(len(symbols))
