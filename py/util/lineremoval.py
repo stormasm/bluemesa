@@ -1,4 +1,14 @@
+#
 # This removes the first line of a file
+#
+# The input to this script is a directory
+# where all of your files are located that
+# you want the first line removed from
+#
+# Note this will only grab files from that
+# particular directory that ends with a certain
+# filename extension in this case we are looking
+# for CSV files.
 #
 # Be careful running this script because
 # if you run it twice it will continue to
@@ -28,6 +38,8 @@ def removeline(filename):
             next(f) # skip header line
             for line in f:
                 f1.write(line)
+# If you don't want to remove the old files
+# Then simply comment out the next 2 lines of code
     os.remove(filename)
     os.rename(filenametmp,filename)
 
