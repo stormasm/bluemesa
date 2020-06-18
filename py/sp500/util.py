@@ -26,7 +26,7 @@ def get_all_symbols_sp500():
                 #print(dict_item[key])
                 #print("")
                 for item in dict_item[key]:
-                    print(item)
+                    #print(item)
                     symbols.add(item)
     return(symbols)
 
