@@ -10,10 +10,12 @@ def get_industry_group(symbol):
         dataList = json.load(json_file)
         for dict_item in dataList:
           for key in dict_item:
-            print(key)
-            #print(dict_item[key])
+              if key == symbol:
+                  print(key)
+                  return(dict_item[key])
 
 if __name__ == "__main__":
     get_symbol_dict("fb")
     get_symbol_dict("amzn")
-    get_industry_group("xle")
+    ig = get_industry_group("xlc")
+    print(ig)
