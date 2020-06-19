@@ -2,7 +2,7 @@ import json
 
 # given a symbol get the company name
 def get_symbol_name(symbol):
-    with open('sp500n.json') as json_file:
+    with open('/j/tmp32/bluemesa/py/sp500/sp500n.json') as json_file:
         data = json.load(json_file)
         print(data[symbol])
 
@@ -51,7 +51,7 @@ if __name__ == "__main__":
     print("\nThe Industry Group Symbols")
     symbols = get_industry_group_symbols()
     print(symbols)
-    
+
     print("\nNumber of symbols in the sp500")
     symbols = get_all_symbols_sp500()
     print(len(symbols))
