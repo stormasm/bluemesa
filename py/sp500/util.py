@@ -1,8 +1,13 @@
 import json
+import os
 
 # given a symbol get the company name
 def get_symbol_name(symbol):
-    with open('/j/tmp32/bluemesa/py/sp500/sp500n.json') as json_file:
+
+    path = os.environ['BMTOP']
+    path = path + '/bluemesa/data/sp500n.json'
+    with open(path) as json_file:
+#   with open('/j/tmp32/bluemesa/py/sp500/sp500n.json') as json_file:
         data = json.load(json_file)
         return(data[symbol])
 
