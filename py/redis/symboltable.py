@@ -8,4 +8,5 @@ def write_symbol_to_table(rediskey,symbol,name):
 
 if __name__ == "__main__":
     name = util.get_symbol_name("fb")
+    print(name)
     write_symbol_to_table("symboltable","fb",name)

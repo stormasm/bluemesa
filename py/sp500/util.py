@@ -4,7 +4,7 @@ import json
 def get_symbol_name(symbol):
     with open('/j/tmp32/bluemesa/py/sp500/sp500n.json') as json_file:
         data = json.load(json_file)
-        print(data[symbol])
+        return(data[symbol])
 
 # get all of the industry group symbols
 def get_industry_group_symbols():
