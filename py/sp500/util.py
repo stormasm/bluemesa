@@ -7,14 +7,15 @@ def get_symbol_name(symbol):
     path = os.environ['BMTOP']
     path = path + '/bluemesa/data/sp500n.json'
     with open(path) as json_file:
-#   with open('/j/tmp32/bluemesa/py/sp500/sp500n.json') as json_file:
         data = json.load(json_file)
         return(data[symbol])
 
 # get all of the industry group symbols
 def get_industry_group_symbols():
     symbols = set()
-    with open('sp500.json') as json_file:
+    path = os.environ['BMTOP']
+    path = path + '/bluemesa/data/sp500.json'
+    with open(path) as json_file:
         dataList = json.load(json_file)
         for dict_item in dataList:
           for key in dict_item:
@@ -24,7 +25,9 @@ def get_industry_group_symbols():
 # get all of the symbols in the sp500
 def get_all_symbols_sp500():
     symbols = set()
-    with open('sp500.json') as json_file:
+    path = os.environ['BMTOP']
+    path = path + '/bluemesa/data/sp500.json'
+    with open(path) as json_file:
         dataList = json.load(json_file)
         for dict_item in dataList:
             for key in dict_item:
@@ -37,7 +40,9 @@ def get_all_symbols_sp500():
 
 # get all of the symbols in a particular industy group
 def get_industry_group(symbol):
-    with open('sp500.json') as json_file:
+    path = os.environ['BMTOP']
+    path = path + '/bluemesa/data/sp500.json'
+    with open(path) as json_file:
         dataList = json.load(json_file)
         for dict_item in dataList:
           for key in dict_item:
