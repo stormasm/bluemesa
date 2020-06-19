@@ -1,4 +1,6 @@
 from sp500 import util
 
-util.get_symbol_name("fb")
-util.get_symbol_name("amzn")
+fb = util.get_symbol_name("fb")
+print(fb)
+amzn = util.get_symbol_name("amzn")
+print(amzn)
