@@ -1,5 +1,5 @@
 from sp500 import util
-from redis import symboltable
+from bluemesa.redis import symboltable
 
 ### Getting data from sp500 json files
 
@@ -15,7 +15,7 @@ assert(amzn == name)
 ### Getting data from redis
 
 fb = symboltable.get_symbol_name("fb")
-#print(fb)
+print(fb)
 name = "Facebook Inc A"
 assert(fb == name)
 amzn = symboltable.get_symbol_name("amzn")
