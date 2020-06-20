@@ -1,1 +1,1 @@
-from redis import symboltable
+from bluemesa.redis import symboltable
