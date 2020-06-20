@@ -1,27 +1,22 @@
 from bluemesa.sp500 import util
 from bluemesa.redis import symboltable
 
-### Getting data from sp500 json files
+name_fb = "Facebook Inc A"
+name_amzn = "Amazon.com Inc"
 
+### Getting data from sp500 json files
 fb = util.get_symbol_name("fb")
-#print(fb)
-name = "Facebook Inc A"
-assert(fb == name)
+assert(fb == name_fb)
+
 amzn = util.get_symbol_name("amzn")
-#print(amzn)
-name = "Amazon.com Inc"
-assert(amzn == name)
+assert(amzn == name_amzn)
 
 ### Getting data from redis
 
 fb = symboltable.get_symbol_name("fb")
-#print(fb)
-name = "Facebook Inc A"
-assert(fb == name)
-amzn = symboltable.get_symbol_name("amzn")
-#print(amzn)
-name = "Amazon.com Inc"
-assert(amzn == name)
+assert(fb == name_fb)
 
+amzn = symboltable.get_symbol_name("amzn")
+assert(amzn == name_amzn)
 
 print("sp500util tests completed")
