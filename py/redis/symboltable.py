@@ -6,6 +6,9 @@ rc = redis.Redis(host='localhost', port=6379, db=0)
 def write_symbol_to_table(rediskey,symbol,name):
     rc.hset(rediskey,symbol,name)
 
+def get_symbol_name(symbol):
+    rc.hget("symboltable",symbol)
+
 if __name__ == "__main__":
     name = util.get_symbol_name("fb")
     print(name)
