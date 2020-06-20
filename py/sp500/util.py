@@ -38,6 +38,12 @@ def get_all_symbols_sp500():
                     symbols.add(item)
     return(symbols)
 
+def get_set_from_dict(list):
+    symbols = set()
+    for item in list:
+        symbols.add(item)
+    return(symbols)
+
 # get all of the symbols in a particular industy group
 def get_industry_group(symbol):
     path = os.environ['BMTOP']
@@ -47,7 +53,8 @@ def get_industry_group(symbol):
         for dict_item in dataList:
           for key in dict_item:
               if key == symbol:
-                  return(dict_item[key])
+                  set = get_set_from_dict(dict_item[key])
+                  return(set)
 
 if __name__ == "__main__":
     get_symbol_name("fb")
