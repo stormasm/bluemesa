@@ -15,13 +15,13 @@ assert(amzn == name)
 ### Getting data from redis
 
 fb = symboltable.get_symbol_name("fb")
-print(fb)
-#name = "Facebook Inc A"
-#assert(fb == name)
-#amzn = symboltable.get_symbol_name("amzn")
+#print(fb)
+name = "Facebook Inc A"
+assert(fb == name)
+amzn = symboltable.get_symbol_name("amzn")
 #print(amzn)
-#name = "Amazon.com Inc"
-#assert(amzn == name)
+name = "Amazon.com Inc"
+assert(amzn == name)
 
 
 print("sp500util tests completed")
