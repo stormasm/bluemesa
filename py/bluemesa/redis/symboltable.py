@@ -1,5 +1,5 @@
 import redis
-from sp500 import util
+from bluemesa.sp500 import util
 
 rc = redis.Redis(host='localhost', port=6379, db=0)
 
