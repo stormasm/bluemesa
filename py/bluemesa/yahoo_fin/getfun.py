@@ -1,7 +1,7 @@
 import datetime
 import os
 from yahoo_fin.stock_info import get_stats
-from bluemesa.util import symbol
+from bluemesa.util import lineutil
 
 def get_day():
     x = datetime.datetime.now()
@@ -25,7 +25,7 @@ if __name__ == "__main__":
     path = os.environ['BMTOP']
     path_in  = path + '/bluemesa/config/symbols/top.txt'
     path_out = path + '/bluemesa/tmp/'
-    symbols = symbol.get_symbols(path_in)
+    symbols = lineutil.get_lines_as_set(path_in)
     process(symbols,path_out)
 
 # The variable symbols is always a Python set which is nice

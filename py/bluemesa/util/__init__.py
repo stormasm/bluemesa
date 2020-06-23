@@ -1,1 +1,1 @@
-from bluemesa.util import symbol
+from bluemesa.util import lineutil
