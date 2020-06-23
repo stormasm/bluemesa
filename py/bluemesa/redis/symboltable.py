@@ -13,7 +13,7 @@ def get_symbols_from_set(rediskey):
 def write_symbol_to_set(rediskey,symbol):
     rc.sadd(rediskey,symbol)
 
-def write_symbol_to_table(rediskey,symbol,name):
+def write_symbol_to_hash(rediskey,symbol,name):
     rc.hset(rediskey,symbol,name)
 
 def get_symbol_name(symbol):
@@ -24,10 +24,10 @@ def get_symbol_name(symbol):
 if __name__ == "__main__":
     name = util.get_symbol_name("fb")
     print(name)
-    write_symbol_to_table("symboltable","fb",name)
+    write_symbol_to_hash("symboltable","fb",name)
     sp500 = util.get_all_symbols_sp500()
     for symbol in sp500:
         print(symbol)
         name = util.get_symbol_name(symbol)
-        write_symbol_to_table("symboltable",symbol,name)
+        write_symbol_to_hash("symboltable",symbol,name)
         write_symbol_to_set("symbol-set-sp500",symbol)
