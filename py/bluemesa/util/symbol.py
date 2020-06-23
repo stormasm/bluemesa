@@ -6,7 +6,6 @@ def get_symbols(filename):
     fp = open(filename, "r")
     for cnt, line in enumerate(fp):
         symbol = line.strip()
-        print(symbol)
         myset.add(symbol)
     return(myset)
 

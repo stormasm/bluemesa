@@ -8,3 +8,5 @@ if __name__ == "__main__":
     symbols = symbol.get_symbols(path_in)
     for symbol in symbols:
         symboltable.write_symbol_to_set("symbol-set-sdy",symbol)
+    myset = symboltable.get_symbols_from_set("symbol-set-sdy")
+    print(myset)
