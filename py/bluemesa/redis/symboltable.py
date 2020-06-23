@@ -3,6 +3,9 @@ from bluemesa.sp500 import util
 
 rc = redis.Redis(host='localhost', port=6379, db=0)
 
+def write_symbol_to_set(rediskey,symbol):
+    rc.sadd(rediskey,symbol)
+
 def write_symbol_to_table(rediskey,symbol,name):
     rc.hset(rediskey,symbol,name)
 
@@ -20,3 +23,4 @@ if __name__ == "__main__":
         print(symbol)
         name = util.get_symbol_name(symbol)
         write_symbol_to_table("symboltable",symbol,name)
+        write_symbol_to_set("symbol-set-sp500",symbol)
