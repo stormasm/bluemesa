@@ -7,11 +7,18 @@ sdy_csv_file = "/equity-data/groups/holdings-sdy.csv"
 def sdy():
     filename = path_bmtop + sdy_csv_file
     df = pd.read_csv(filename, sep=',')
-    series = df['Ticker']
-    values = series.values
+    tseries = df['Ticker']
+    tickers = tseries.values
+    nseries = df['Name']
+    names = nseries.values
     # convert strings in array to lowercase
-    vl = map(str.lower, values)
-    print(tuple(vl))
+    tickers = map(str.lower, tickers)
+    tickers = tuple(tickers)
+    print(tickers[5])
+    names = map(str.lower,names)
+    names = tuple(names)
+    print(names[5])
+
 
 def get_dict(filename):
     df = pd.read_csv(filename, sep=',')
