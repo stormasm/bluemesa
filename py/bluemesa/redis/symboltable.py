@@ -3,13 +3,6 @@ from bluemesa.sp500 import util
 
 rc = redis.Redis(host='localhost', port=6379, db=0)
 
-def get_symbols_from_set(rediskey):
-    myset = set()
-    rset = rc.smembers(rediskey)
-    for symbol in rset:
-        myset.add(symbol.decode("utf-8"))
-    return(myset)
-
 def write_symbol_to_set(rediskey,symbol):
     rc.sadd(rediskey,symbol)
 
