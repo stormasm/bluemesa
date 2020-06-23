@@ -1,9 +1,10 @@
 import os
 import symboltable
+import util
 
 if __name__ == "__main__":
-    sdy_set = symboltable.get_symbols_from_set("symbol-set-sdy")
-    sp500_set = symboltable.get_symbols_from_set("symbol-set-sp500")
+    sdy_set = util.redis_set_to_python_set("symbol-set-sdy")
+    sp500_set = util.redis_set_to_python_set("symbol-set-sp500")
 
     intersection = sdy_set.intersection(sp500_set)
     print("\nThese symbols are in the sp500")
