@@ -1,5 +1,5 @@
 import os
-from bluemesa.redis import symboltable
+import symboltable
 
 if __name__ == "__main__":
     sdy_set = symboltable.get_symbols_from_set("symbol-set-sdy")
