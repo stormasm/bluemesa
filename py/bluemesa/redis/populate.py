@@ -1,6 +1,7 @@
 import os
 from bluemesa.util import symbol
-from bluemesa.redis import symboltable
+import symboltable
+import util
 
 if __name__ == "__main__":
     path = os.environ['BMTOP']
@@ -8,5 +9,5 @@ if __name__ == "__main__":
     symbols = symbol.get_symbols(path_in)
     for symbol in symbols:
         symboltable.write_symbol_to_set("symbol-set-sdy",symbol)
-    myset = symboltable.get_symbols_from_set("symbol-set-sdy")
+    myset = util.redis_set_to_python_set("symbol-set-sdy")
     print(myset)
