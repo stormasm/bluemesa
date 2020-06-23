@@ -8,3 +8,7 @@
 
 #### Dividends
 * [The Dividend Investing Resource Center](https://www.dripinvesting.org/tools/tools.asp)
+
+#### Sdy
+
+* [SPDR® S&P® Dividend ETF](https://www.ssga.com/us/en/individual/etfs/funds/spdr-sp-dividend-etf-sdy)

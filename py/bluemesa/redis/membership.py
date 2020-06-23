@@ -20,22 +20,23 @@ def sdy_sp500():
     print(len(set1))
 
 def aristocrats_sdy():
-    sdy_set = util.redis_set_to_python_set("symbol-set-sdy")
-    sp500_set = util.redis_set_to_python_set("symbol-set-sp500")
+    set1 = util.redis_set_to_python_set("symbol-set-aristocrats")
+    set2 = util.redis_set_to_python_set("symbol-set-sdy")
 
-    intersection = sdy_set.intersection(sp500_set)
-    print("\nThese symbols are in the sp500")
+    intersection = set1.intersection(set2)
+    print("\nThese symbols are in the sdy")
     print(intersection)
     print(len(intersection))
 
-    difference = sdy_set.difference(intersection)
-    print("\nThese symbols are not in the sp500")
+    difference = set1.difference(intersection)
+    print("\nThese symbols are not in the sdy")
     print(difference)
     print(len(difference))
 
     print("\nThe total number of symbols in both sets")
-    print(len(sdy_set))
+    print(len(set1))
+
 
 if __name__ == "__main__":
-    sdy_sp500()
-    #aristocrats_sdy()
+    #sdy_sp500()
+    aristocrats_sdy()
