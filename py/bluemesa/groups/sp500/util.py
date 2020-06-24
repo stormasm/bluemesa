@@ -9,7 +9,7 @@ def get_symbol_name(symbol):
         data = json.load(json_file)
         return(data[symbol])
 
-# get all of the industry group symbols
+# get all of the sp500 industry group symbols
 def get_industry_group_symbols():
     symbols = set()
     path = os.environ['BMTOP']

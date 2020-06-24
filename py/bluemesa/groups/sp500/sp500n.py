@@ -17,7 +17,7 @@ def get_tuples(filename):
 
     return(svl,nvl)
 
-your_path = '/j/tmp32/equity-data/sp500/groups/200507'
+your_path = '/j/tmp32/equity-data/groups/sp500/200617'
 files = os.listdir(your_path)
 d = {}
 for file in files:
