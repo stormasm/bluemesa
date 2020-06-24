@@ -1,6 +1,17 @@
 import json
 import os
 
+# given a symbol return the industry group name
+def get_industry_group_symbol(symbol):
+    path = os.environ['BMTOP']
+    path = path + '/bluemesa/data/sp500.json'
+    with open(path) as json_file:
+        dataList = json.load(json_file)
+        for dict_item in dataList:
+          for key in dict_item:
+              if symbol in dict_item[key]:
+                  return(key)
+
 # given a symbol get the company name
 def get_symbol_name(symbol):
     path = os.environ['BMTOP']
@@ -56,6 +67,17 @@ def get_industry_group(symbol):
                   return(set)
 
 if __name__ == "__main__":
+
+    xa = "alle"
+    ig = get_industry_group_symbol(xa)
+    print(xa, "is in the industry group",ig)
+    xa = "cvx"
+    ig = get_industry_group_symbol(xa)
+    print(xa, "is in the industry group",ig)
+    xa = "mo"
+    ig = get_industry_group_symbol(xa)
+    print(xa, "is in the industry group",ig)
+
     get_symbol_name("fb")
     get_symbol_name("amzn")
 
