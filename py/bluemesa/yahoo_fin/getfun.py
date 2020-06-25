@@ -23,7 +23,7 @@ def process(symbols,path):
 
 if __name__ == "__main__":
     path = os.environ['BMTOP']
-    path_in  = path + '/bluemesa/config/symbols/top.txt'
+    path_in  = path + '/bluemesa/config/symbols/aristocrats.txt'
     path_out = path + '/bluemesa/tmp/'
     symbols = lineutil.get_lines_as_set(path_in)
     process(symbols,path_out)

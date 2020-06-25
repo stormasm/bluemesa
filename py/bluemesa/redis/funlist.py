@@ -6,7 +6,7 @@ from os.path import isfile, join
 
 import redis
 
-rc = redis.Redis(host='localhost', port=6379, db=0)
+rc = redis.Redis(host='localhost', port=6379, db=1)
 
 def get_symbol_from_filename(filename):
     file = os.path.basename(filename)
