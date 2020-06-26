@@ -9,7 +9,6 @@ def modify_array_values(input):
     for value in input:
         mytype = type(value)
         bool = isinstance(value,(float,tuple))
-        #print(value,mytype,bool)
         if not bool:
             arr.append(value)
         else:
@@ -25,7 +24,6 @@ def get_symbol_from_filename(filename):
     return(p2)
 
 def get_dict(filename):
-    #print(filename)
     df = pd.read_csv(filename, sep=',')
     series = df['Value']
     values = series.values
