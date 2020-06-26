@@ -4,6 +4,15 @@ import pandas as pd
 from pathlib import PurePath
 import re
 
+def modify_array_values(input):
+    for value in input:
+        mytype = type(value)
+        bool = isinstance(value,(float,tuple))
+        print(value,mytype,bool)
+
+        #if value == "nan":
+        #    print(value)
+
 def get_symbol_from_filename(filename):
     pp = PurePath(filename)
     # get the filename in the path
@@ -13,14 +22,15 @@ def get_symbol_from_filename(filename):
     return(p2)
 
 def get_dict(filename):
-    #print(filename)
+    print(filename)
     df = pd.read_csv(filename, sep=',')
     series = df['Value']
     values = series.values
+    values = modify_array_values(values)
     d = {}
-    symbol = get_symbol_from_filename(filename)
-    st = tuple(values)
-    d[symbol] = st
+#    symbol = get_symbol_from_filename(filename)
+#    st = tuple(values)
+#    d[symbol] = st
     return(d)
 
 if __name__ == "__main__":
@@ -33,4 +43,4 @@ if __name__ == "__main__":
         d = get_dict(filename)
         arr.append(d)
     myj = json.dumps(arr)
-    print(myj)
+    #print(myj)
