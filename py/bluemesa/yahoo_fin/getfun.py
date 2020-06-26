@@ -16,10 +16,10 @@ def build_file_name(symbol):
 
 def process(symbols,path,key):
     for symbol in symbols:
-        print(symbol)
         filename = build_file_name(symbol)
         bool = util.redis_set_read(key,symbol)
         if not bool:
+            print(symbol)
             data = get_stats(symbol)
             out_file = path + filename
             data.to_csv(out_file)
