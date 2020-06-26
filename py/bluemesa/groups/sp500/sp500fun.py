@@ -32,8 +32,8 @@ def get_dict1(filename):
     values = series.values
     d = {}
     symbol = get_symbol_from_filename1(filename)
-    print(symbol)
-    d[symbol] = values
+    st = tuple(values)
+    d[symbol] = st
     return(d)
 
 def get_dict(filename):
@@ -59,5 +59,5 @@ if __name__ == "__main__":
         filename = os.path.join(path, file)
         d = get_dict1(filename)
         arr.append(d)
-    #myj = json.dumps(arr)
-    #print(myj)
+    myj = json.dumps(arr)
+    print(myj)
