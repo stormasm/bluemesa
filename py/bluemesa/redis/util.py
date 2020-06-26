@@ -42,6 +42,8 @@ if __name__ == "__main__":
     assert val == True
     val = redis_set_read(k,"nm")
     assert val == False
+    val = rc.exists(k)
+    assert val == True
     redis_delete(k)
     val = rc.exists(k)
     assert val == False
