@@ -14,6 +14,13 @@ def get_symbol_from_filename(filename):
     p3 = re.split("holdings-",p2)[1]
     return(p3)
 
+def get_dict1(filename):
+    print(filename)
+    df = pd.read_csv(filename, sep=',')
+    series = df['Value']
+    values = series.values
+    print(values)
+
 def get_dict(filename):
     df = pd.read_csv(filename, sep=',')
     series = df['Symbol']
@@ -29,12 +36,12 @@ def get_dict(filename):
 
 if __name__ == "__main__":
     path = os.environ['BMTOP']
-    path = path + '/equity-data/groups/sp500/200617'
+    path = path + '/equity-fun/sp500/20-06-26'
     files = os.listdir(path)
     arr = []
     for file in files:
         filename = os.path.join(path, file)
-        d = get_dict(filename)
-        arr.append(d)
-    myj = json.dumps(arr)
-    print(myj)
+        d = get_dict1(filename)
+        #arr.append(d)
+    #myj = json.dumps(arr)
+    #print(myj)
