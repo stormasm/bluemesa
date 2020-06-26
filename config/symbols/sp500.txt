@@ -3,7 +3,7 @@ hp
 syk
 tel
 dltr
-brk.b
+brk-b
 rl
 omc
 mcd
