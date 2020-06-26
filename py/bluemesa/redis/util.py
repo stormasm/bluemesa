@@ -26,11 +26,13 @@ def redis_delete(key):
     rc.delete(key)
 
 if __name__ == "__main__":
-    redis_set_write("mykey","or")
-    val = redis_set_read("mykey","or")
+    k = "mykey"
+    redis_set_write(k,"or")
+    redis_set_write(k,"ca")
+    val = redis_set_read(k,"or")
     assert val == True
-    val = redis_set_read("mykey","nm")
+    val = redis_set_read(k,"nm")
     assert val == False
-    redis_delete("mykey")
-    val = rc.exists("mykey")
+    redis_delete(k)
+    val = rc.exists(k)
     assert val == False
