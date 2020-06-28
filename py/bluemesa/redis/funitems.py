@@ -37,7 +37,20 @@ def write_file_to_redis(filename):
         for row in funreader:
             write_data_to_redis_list(rediskey,row[0],row[2])
 
-if __name__ == "__main__":
+def getSymbol(tsymbol):
+    path = os.environ['BMTOP']
+    filename = path + '/bluemesa/data/sp500fun.json'
+    with open(filename) as json_file:
+        data = json.load(json_file)
+        numofitems = len(data)
+        for i in range(numofitems):
+            symbol = data[i]
+            for k in symbol:
+                if k == tsymbol:
+                    value = symbol[k]
+                    print(k,value[23])
+
+def getPayoutRatio():
     path = os.environ['BMTOP']
     filename = path + '/bluemesa/data/sp500fun.json'
     with open(filename) as json_file:
@@ -47,3 +60,7 @@ if __name__ == "__main__":
                 ## 23 is the payout ratio
                 v = dict[k][23]
                 print(idx,k,v)
+
+if __name__ == "__main__":
+    getPayoutRatio()
+    getSymbol('amzn')
