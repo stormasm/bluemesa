@@ -7,7 +7,7 @@ from os.path import isfile, join
 
 from bluemesa.redis import symboltable
 
-def getPayoutRatio():
+def getCashFlow():
     path = os.environ['BMTOP']
     filename = path + '/bluemesa/data/sp500fun.json'
     arr = []
@@ -37,5 +37,5 @@ def write_csv(data):
             csvwriter.writerow([row[0]] + [row[1]] + [row[2]] + [row[3]] + [row[4]] + [row[5]] + [row[6]])
 
 if __name__ == "__main__":
-    data = getPayoutRatio()
+    data = getCashFlow()
     write_csv(data)
