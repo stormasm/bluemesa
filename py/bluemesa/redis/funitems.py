@@ -43,5 +43,5 @@ if __name__ == "__main__":
     with open(filename) as json_file:
         data = json.load(json_file)
         numofitems = len(data)
-        for p in data:
-            print(p)
+        for i in range(numofitems):
+            print(data[i])
