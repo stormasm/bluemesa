@@ -20,7 +20,7 @@ def get_symbol_from_filename(filename):
     # get the filename in the path
     p1 = pp.parts[-1]
     # get everything before the dot
-    p2 = re.split("-",p1)[0]
+    p2 = re.split("-fun",p1)[0]
     return(p2)
 
 def get_dict(filename):
