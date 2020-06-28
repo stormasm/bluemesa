@@ -6,6 +6,7 @@ from os import listdir
 from os.path import isfile, join
 
 import redis
+import symboltable
 
 rc = redis.Redis(host='localhost', port=6379, db=1)
 
@@ -62,7 +63,8 @@ def getPayoutRatio():
                 ## 23 is the payout ratio
                 fyield = dict[k][19]
                 payout = dict[k][23]
-                arr.append([idx,k,fyield,payout])
+                name = symboltable.get_symbol_name(k)
+                arr.append([idx,k,name,fyield,payout])
     return arr
 
 def write_csv(data):
@@ -70,9 +72,9 @@ def write_csv(data):
     filename = path + '/bluemesa/tmp/fun/out/payout.csv'
     with open(filename, 'w', newline='') as csvfile:
         csvwriter = csv.writer(csvfile, delimiter=',')
-        csvwriter.writerow(['index'] + ['symbol'] + ['yield'] + ['payout'])
+        csvwriter.writerow(['index'] + ['symbol'] + ['name'] + ['yield'] + ['payout'])
         for row in data:
-            csvwriter.writerow([row[0]] + [row[1]] + [row[2]] + [row[3]])
+            csvwriter.writerow([row[0]] + [row[1]] + [row[2]] + [row[3]] + [row[4]])
 
 if __name__ == "__main__":
     data = getPayoutRatio()
