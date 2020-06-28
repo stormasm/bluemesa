@@ -42,10 +42,7 @@ if __name__ == "__main__":
     filename = path + '/bluemesa/data/sp500fun.json'
     with open(filename) as json_file:
         data = json.load(json_file)
-        numofitems = len(data)
-        for i in range(numofitems):
-            symbol = data[i]
-            for k in symbol:
-                if k == 't':
-                    value = symbol[k]
-                    print(k,value[23])
+        for idx,dict in enumerate(data):
+            for k in dict:
+                v = dict[k]
+                print('\n',idx,k,v)
