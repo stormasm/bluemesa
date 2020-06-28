@@ -63,15 +63,16 @@ def getPayoutRatio():
                 fyield = dict[k][19]
                 payout = dict[k][23]
                 arr.append([idx,k,fyield,payout])
-                #print(idx,k,fyield,payout)
     return arr
 
 def write_csv(data):
-    with open('payout.csv', 'w', newline='') as csvfile:
-        spamwriter = csv.writer(csvfile, delimiter=',')
-        spamwriter.writerow(['index'] + ['symbol'] + ['yield'] + ['payout'])
+    path = os.environ['BMTOP']
+    filename = path + '/bluemesa/tmp/fun/out/payout.csv'
+    with open(filename, 'w', newline='') as csvfile:
+        csvwriter = csv.writer(csvfile, delimiter=',')
+        csvwriter.writerow(['index'] + ['symbol'] + ['yield'] + ['payout'])
         for row in data:
-            spamwriter.writerow([row[0]] + [row[1]] + [row[2]] + [row[3]])
+            csvwriter.writerow([row[0]] + [row[1]] + [row[2]] + [row[3]])
 
 if __name__ == "__main__":
     data = getPayoutRatio()
