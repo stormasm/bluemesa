@@ -11,7 +11,7 @@ rc = redis.Redis(host='localhost', port=6379, db=1)
 
 def get_symbol_from_filename(filename):
     file = os.path.basename(filename)
-    tokens = file.split('-')
+    tokens = file.split('-fun')
     symbol = tokens[0]
     return(symbol)
 
@@ -44,5 +44,6 @@ if __name__ == "__main__":
         data = json.load(json_file)
         for idx,dict in enumerate(data):
             for k in dict:
-                v = dict[k]
-                print('\n',idx,k,v)
+                ## 23 is the payout ratio
+                v = dict[k][23]
+                print(idx,k,v)
