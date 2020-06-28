@@ -42,6 +42,6 @@ if __name__ == "__main__":
     filename = path + '/bluemesa/data/sp500fun.json'
     with open(filename) as json_file:
         data = json.load(json_file)
-        print(len(data))
-        for p in data[0]:
+        numofitems = len(data)
+        for p in data:
             print(p)
