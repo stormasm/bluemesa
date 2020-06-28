@@ -38,7 +38,7 @@ def write_file_to_redis(filename):
 
 if __name__ == "__main__":
     path = os.environ['BMTOP']
-    path = path + '/bluemesa/tmp'
+    path = path + '/bluemesa/tmp/fun/in'
     files = getfiles(path)
     for file in files:
         write_file_to_redis(file)
