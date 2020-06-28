@@ -44,4 +44,6 @@ if __name__ == "__main__":
         data = json.load(json_file)
         numofitems = len(data)
         for i in range(numofitems):
-            print(data[i])
+            symbol = data[i]
+            for k in symbol:
+                print(symbol[k][23])
