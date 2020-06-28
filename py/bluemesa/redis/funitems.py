@@ -53,6 +53,7 @@ def getSymbol(tsymbol):
 def getPayoutRatio():
     path = os.environ['BMTOP']
     filename = path + '/bluemesa/data/sp500fun.json'
+    arr = []
     with open(filename) as json_file:
         data = json.load(json_file)
         for idx,dict in enumerate(data):
@@ -61,8 +62,18 @@ def getPayoutRatio():
                 ## 23 is the payout ratio
                 fyield = dict[k][19]
                 payout = dict[k][23]
-                print(idx,k,fyield,payout)
+                arr.append([idx,k,fyield,payout])
+                #print(idx,k,fyield,payout)
+    return arr
+
+def write_csv(data):
+    with open('payout.csv', 'w', newline='') as csvfile:
+        spamwriter = csv.writer(csvfile, delimiter=',')
+        spamwriter.writerow(['index'] + ['symbol'] + ['yield'] + ['payout'])
+        for row in data:
+            spamwriter.writerow([row[0]] + [row[1]] + [row[2]] + [row[3]])
 
 if __name__ == "__main__":
-    getPayoutRatio()
+    data = getPayoutRatio()
+    write_csv(data)
     #getSymbol('t')
