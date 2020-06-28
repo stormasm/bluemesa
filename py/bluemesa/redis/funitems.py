@@ -46,4 +46,6 @@ if __name__ == "__main__":
         for i in range(numofitems):
             symbol = data[i]
             for k in symbol:
-                print(symbol[k][23])
+                if k == 't':
+                    value = symbol[k]
+                    print(k,value[23])
