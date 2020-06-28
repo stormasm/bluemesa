@@ -57,10 +57,12 @@ def getPayoutRatio():
         data = json.load(json_file)
         for idx,dict in enumerate(data):
             for k in dict:
+                ## 19 is the forward dividend yield
                 ## 23 is the payout ratio
-                v = dict[k][23]
-                print(idx,k,v)
+                fyield = dict[k][19]
+                payout = dict[k][23]
+                print(idx,k,fyield,payout)
 
 if __name__ == "__main__":
     getPayoutRatio()
-    getSymbol('amzn')
+    #getSymbol('t')
