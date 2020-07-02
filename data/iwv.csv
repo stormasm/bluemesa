@@ -2804,9 +2804,7 @@ Ticker,Name,Asset Class,Weight (%),Price,Shares,Market Value,Notional Value,Sect
 "GFN","GENERAL FINANCE CORP","Equity","0.00","6.71","701.00","4,703.71","4,703.71","Industrials","B16P748","US3698221013","NASDAQ"
 "GTXI","GTXI INC - CVR","Equity","0.00","2.05","684.00","1,402.20","1,402.20","Health Care","9952B27","US400CVR0150","NASDAQ"
 "CLAR","CLARUS CORP","Equity","0.00","11.58","53.00","613.74","613.74","Consumer Discretionary","BF5QHG2","US18270P1093","NASDAQ"
-"-","RESTRICTED CONTRA FERROGLOBE UNIT","Equity","0.00","0.00","15,827.00","0.16","0.16","Materials","-","-","NASDAQ"
 "RTYU0","RUSSELL 2000 EMINI CME SEP 20","Futures","0.00","1,437.60","35.00","0.00","2,515,800.00","Cash and/or Derivatives","-","-","Chicago Mercantile Exchange"
 "ESU0","S&P500 EMINI SEP 20","Futures","0.00","3,090.20","115.00","0.00","17,768,650.00","Cash and/or Derivatives","-","-","Index And Options Market"
 "P5N994","Petrocorp Inc Escrow","Equity","0.00","0.00","1,248.00","0.01","0.01","Materials","-","US71645N9947","Non-Nms Quotation Service (Nnqs)"
 "CLMS","CALAMOS ASSET MANAGEMENT INC. SHS Prvt","Equity","0.00","0.00","4,985.00","0.05","0.05","Financials","-","-","NO MARKET (E.G. UNLISTED)"
- 
