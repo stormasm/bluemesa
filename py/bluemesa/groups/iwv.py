@@ -43,7 +43,21 @@ def iwv():
     for i, name in enumerate(tickers):
         print(tickers[i],names[i])
 
+# Read the symbol from a csv file
+# and write it out to a redis set
+def iwv_to_redis_set():
+    filename = path_bmtop + iwv_csv_file
+    df = pd.read_csv(filename, sep=',')
+    tseries = df['Ticker']
+    tickers = tseries.values
+
+    tickers = map(str.lower, tickers)
+    tickers = tuple(tickers)
+    for i, name in enumerate(tickers):
+        print(tickers[i])
+
 # py iwv.py > iwvn.json
 if __name__ == "__main__":
     #iwv_to_json()
-    iwv()
+    #iwv()
+    iwv_to_redis_set()
