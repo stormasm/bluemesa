@@ -1,5 +1,5 @@
 import os
-from xbrl import XBRLParser, GAAP, GAAPSerializer
+from xbrl import XBRLParser, GAAP, GAAPSerializer, DEISerializer
 
 def getfiles(mypath):
     files = set()
@@ -9,8 +9,18 @@ def getfiles(mypath):
     return(files)
 
 def parse(file):
+    print("\nData for ",file)
     xbrl_parser = XBRLParser()
     xbrl = xbrl_parser.parse(open(file))
+    #gaap_obj = xbrl_parser.parseGAAP(xbrl, doc_date="20131228", context="current", ignore_errors=0)
+    gaap_obj = xbrl_parser.parseGAAP(xbrl, context="current", ignore_errors=0)
+    serializer = GAAPSerializer()
+    result = serializer.dump(gaap_obj)
+    #print(result)
+    dei_obj = xbrl_parser.parseDEI(xbrl)
+    serializer = DEISerializer()
+    result = serializer.dump(dei_obj)
+    print(result)
 
 if __name__ == "__main__":
     path = os.environ['BMTOP']
