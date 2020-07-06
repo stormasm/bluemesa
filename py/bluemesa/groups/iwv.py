@@ -3,7 +3,7 @@ import os
 import pandas as pd
 
 path_bmtop = os.environ['BMTOP']
-iwv_csv_file = "/bluemesa/data/iwv.csv"
+iwv_csv_file = "/equity-etf/data/ishares/iwv.csv"
 
 # Read the company name and symbol from a csv file
 # and write the data out to json
@@ -59,5 +59,5 @@ def iwv_to_redis_set():
 # py iwv.py > iwvn.json
 if __name__ == "__main__":
     #iwv_to_json()
-    #iwv()
-    iwv_to_redis_set()
+    iwv()
+    #iwv_to_redis_set()
