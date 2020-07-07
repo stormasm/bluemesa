@@ -2,6 +2,7 @@ import json
 import os
 import sys
 import pandas as pd
+from bluemesa.redis import util
 
 path_bmtop = os.environ['BMTOP']
 ishares_dir = "/equity-etf/data/ishares/"
@@ -55,7 +56,7 @@ def ishares_to_redis_set(filename):
     tickers = map(str.lower, tickers)
     tickers = tuple(tickers)
     for i, name in enumerate(tickers):
-        print(tickers[i])
+        util.redis_set_write("jim",tickers[i])
 
 def check_args(arg):
     group = {'pff','iwv'}
@@ -71,7 +72,7 @@ def process(filename):
     ishares_to_redis_set(filename)
 
 def arg_process():
-    default = 'iwv'
+    default = 'pff'
     num = len(sys.argv)
     if num > 1:
         arg = sys.argv[1]
