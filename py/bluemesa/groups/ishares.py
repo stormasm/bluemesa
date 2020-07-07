@@ -10,7 +10,7 @@ ishares_dir = "/equity-etf/data/ishares/"
 # Read the company name and symbol from a csv file
 # and write the data out to json
 def ishares_to_json(filename):
-    #filename = path_bmtop + iwv_csv_file
+    filename = get_filename(symbol)
     df = pd.read_csv(filename, sep=',')
 
     sseries = df['Ticker']
@@ -30,8 +30,8 @@ def ishares_to_json(filename):
 
 # Read the company name and symbol from a csv file
 # and write it out to some other format
-def ishares(filename):
-    #filename = path_bmtop + iwv_csv_file
+def ishares(symbol):
+    filename = get_filename(symbol)
     df = pd.read_csv(filename, sep=',')
     tseries = df['Ticker']
     tickers = tseries.values
@@ -47,8 +47,9 @@ def ishares(filename):
 
 # Read the symbol from a csv file
 # and write it out to a redis set
-def ishares_to_redis_set(filename):
-    #filename = path_bmtop + iwv_csv_file
+def ishares_to_redis_set(symbol):
+    filename = get_filename(symbol)
+    key = "symbol-set-" + symbol
     df = pd.read_csv(filename, sep=',')
     tseries = df['Ticker']
     tickers = tseries.values
@@ -56,7 +57,7 @@ def ishares_to_redis_set(filename):
     tickers = map(str.lower, tickers)
     tickers = tuple(tickers)
     for i, name in enumerate(tickers):
-        util.redis_set_write("jim",tickers[i])
+        util.redis_set_write(key,tickers[i])
 
 def check_args(arg):
     group = {'pff','iwv'}
@@ -66,10 +67,10 @@ def get_filename(symbol):
     filename = path_bmtop + ishares_dir + symbol + ".csv"
     return(filename)
 
-def process(filename):
-    #ishares(filename)
-    #ishares_to_json(filename)
-    ishares_to_redis_set(filename)
+def process(symbol):
+    #ishares(symbol)
+    #ishares_to_json(symbol)
+    ishares_to_redis_set(symbol)
 
 def arg_process():
     default = 'pff'
@@ -80,12 +81,12 @@ def arg_process():
         arg = default
     val = check_args(arg)
     if val:
-        filename = get_filename(arg)
+        symbol = arg
     else:
-        filename = get_filename(default)
-    return(filename)
+        symbol = default
+    return(symbol)
 
 # py ishares.py > iwvn.json
 if __name__ == "__main__":
-    filename = arg_process()
-    process(filename)
+    symbol = arg_process()
+    process(symbol)
