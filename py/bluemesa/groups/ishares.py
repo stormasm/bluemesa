@@ -46,8 +46,8 @@ def ishares(filename):
 
 # Read the symbol from a csv file
 # and write it out to a redis set
-def iwv_to_redis_set():
-    filename = path_bmtop + iwv_csv_file
+def ishares_to_redis_set(filename):
+    #filename = path_bmtop + iwv_csv_file
     df = pd.read_csv(filename, sep=',')
     tseries = df['Ticker']
     tickers = tseries.values
@@ -67,9 +67,8 @@ def get_filename(symbol):
 
 def process(filename):
     #ishares(filename)
-    ishares_to_json(filename)
-    #iwv()
-    #iwv_to_redis_set()
+    #ishares_to_json(filename)
+    ishares_to_redis_set(filename)
 
 def arg_process():
     default = 'iwv'
