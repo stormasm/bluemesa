@@ -8,8 +8,8 @@ ishares_dir = "/equity-etf/data/ishares/"
 
 # Read the company name and symbol from a csv file
 # and write the data out to json
-def iwv_to_json():
-    filename = path_bmtop + iwv_csv_file
+def ishares_to_json(filename):
+    #filename = path_bmtop + iwv_csv_file
     df = pd.read_csv(filename, sep=',')
 
     sseries = df['Ticker']
@@ -66,8 +66,8 @@ def get_filename(symbol):
     return(filename)
 
 def process(filename):
-    ishares(filename)
-    #iwv_to_json()
+    #ishares(filename)
+    ishares_to_json(filename)
     #iwv()
     #iwv_to_redis_set()
 
