@@ -73,15 +73,15 @@ def process(filename):
 
 # py iwv.py > iwvn.json
 if __name__ == "__main__":
+    default = 'iwv'
     num = len(sys.argv)
-    print(num)
     if num > 1:
         arg = sys.argv[1]
     else:
-        arg = 'iwv'
+        arg = default
     val = check_args(arg)
     if val:
         filename = get_filename(arg)
     else:
-        filename = get_filename('iwv')
+        filename = get_filename(default)
     process(filename)
