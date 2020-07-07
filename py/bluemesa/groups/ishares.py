@@ -34,8 +34,8 @@ def iwv_to_json():
 
 # Read the company name and symbol from a csv file
 # and write it out to some other format
-def iwv():
-    filename = path_bmtop + iwv_csv_file
+def ishares(filename):
+    #filename = path_bmtop + iwv_csv_file
     df = pd.read_csv(filename, sep=',')
     tseries = df['Ticker']
     tickers = tseries.values
@@ -68,12 +68,19 @@ def check_args(arg):
 
 # py iwv.py > iwvn.json
 if __name__ == "__main__":
-    arg = sys.argv[1]
-    print(arg)
+    num = len(sys.argv)
+    print(num)
+    if num > 1:
+        arg = sys.argv[1]
+    else:
+        arg = 'iwv'
     val = check_args(arg)
-    print(val)
-    filename = get_filename(arg)
+    if val:
+        filename = get_filename(arg)
+    else:
+        filename = get_filename('iwv')
     print(filename)
+    #ishares(filename)
     #iwv_to_json()
     #iwv()
     #iwv_to_redis_set()
