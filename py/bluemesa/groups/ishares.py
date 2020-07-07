@@ -1,5 +1,6 @@
 import json
 import os
+import sys
 import pandas as pd
 
 path_bmtop = os.environ['BMTOP']
@@ -56,8 +57,16 @@ def iwv_to_redis_set():
     for i, name in enumerate(tickers):
         print(tickers[i])
 
+def check_args(arg):
+    group = {'pff','iwv'}
+    return(arg in group)
+
 # py iwv.py > iwvn.json
 if __name__ == "__main__":
+    arg = sys.argv[1]
+    print(arg)
+    val = check_args(arg)
+    print(val)
     #iwv_to_json()
-    iwv()
+    #iwv()
     #iwv_to_redis_set()
