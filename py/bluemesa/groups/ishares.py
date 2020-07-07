@@ -71,8 +71,7 @@ def process(filename):
     #iwv()
     #iwv_to_redis_set()
 
-# py iwv.py > iwvn.json
-if __name__ == "__main__":
+def arg_process():
     default = 'iwv'
     num = len(sys.argv)
     if num > 1:
@@ -84,4 +83,9 @@ if __name__ == "__main__":
         filename = get_filename(arg)
     else:
         filename = get_filename(default)
+    return(filename)
+
+# py ishares.py > iwvn.json
+if __name__ == "__main__":
+    filename = arg_process()
     process(filename)
