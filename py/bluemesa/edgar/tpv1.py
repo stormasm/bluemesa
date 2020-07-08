@@ -1,6 +1,6 @@
 import os
+from bluemesa.edgar.pv1x import XBRLParser, GAAPSerializer, DEISerializer
 #from xbrl import XBRLParser, GAAPSerializer, DEISerializer
-from bluemesa.edgar import pv1x
 
 def getfiles(mypath):
     files = set()
@@ -11,15 +11,15 @@ def getfiles(mypath):
 
 def parse(file):
     print("\nData for ",file)
-    xbrl_parser = pv1x.XBRLParser()
+    xbrl_parser = XBRLParser()
     xbrl = xbrl_parser.parse(open(file))
     #gaap_obj = xbrl_parser.parseGAAP(xbrl, doc_date="20131228", context="current", ignore_errors=0)
     gaap_obj = xbrl_parser.parseGAAP(xbrl, context="current", ignore_errors=0)
-    serializer = pv1x.GAAPSerializer()
+    serializer = GAAPSerializer()
     result = serializer.dump(gaap_obj)
     #print(result)
     dei_obj = xbrl_parser.parseDEI(xbrl)
-    serializer = pv1x.DEISerializer()
+    serializer = DEISerializer()
     result = serializer.dump(dei_obj)
     print(result)
 
