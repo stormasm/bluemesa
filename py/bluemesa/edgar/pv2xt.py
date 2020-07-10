@@ -1,5 +1,5 @@
 import os
-from bluemesa.edgar.pv1x import XBRLParser, GAAPSerializer, DEISerializer
+from bluemesa.edgar.pv2x import XBRLParser, GAAPSerializer, DEISerializer
 #from xbrl import XBRLParser, GAAPSerializer, DEISerializer
 
 def getfiles(mypath):
