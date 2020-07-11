@@ -1,3 +1,8 @@
+
+For a high level overview of the concepts see the document
+
+ * [workflow](./doc/workflow.md)
+
 This code requires that you have
 [redis](http://redis.io)
 installed on your system and that the redis server is up and running...
