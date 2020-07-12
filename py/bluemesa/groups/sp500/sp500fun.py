@@ -34,7 +34,8 @@ def get_dict(filename):
     d[symbol] = st
     return(d)
 
-#py sp500fun.py > sp500fun.json
+# Remember to remove the Readme in the directory
+# py sp500fun.py > sp500fun.json
 if __name__ == "__main__":
     path = os.environ['BMTOP']
     path = path + '/equity-fun/sp500/20-06-26'
