@@ -4,10 +4,6 @@ import os
 from os import listdir
 from os.path import isfile, join
 
-import redis
-
-rc = redis.Redis(host='localhost', port=6379, db=1)
-
 def get_symbol_from_filename(filename):
     file = os.path.basename(filename)
     tokens = file.split('-')
@@ -28,7 +24,6 @@ def write_file_to_sqlite(filename):
     symbol = get_symbol_from_filename(filename)
     rediskey = symbol + "-fun"
     print(symbol)
-    rc.delete(rediskey)
     with open(filename, newline='') as csvfile:
         funreader = csv.reader(csvfile, delimiter=',')
         # do not read the first line of the csv file
