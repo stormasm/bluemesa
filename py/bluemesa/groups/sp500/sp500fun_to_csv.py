@@ -38,7 +38,8 @@ def get_dict(filename):
 # py sp500fun.py > sp500fun.json
 if __name__ == "__main__":
     path = os.environ['BMTOP']
-    path = path + '/equity-fun/sp500/data/20-07-12'
+#   path = path + '/equity-fun/sp500/data/20-07-12'
+    path = path + '/tmp/data'
     files = os.listdir(path)
     arr = []
     for file in files:
