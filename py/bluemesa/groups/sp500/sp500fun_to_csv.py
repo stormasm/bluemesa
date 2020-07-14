@@ -1,3 +1,4 @@
+import csv
 import json
 import os
 import pandas as pd
@@ -36,16 +37,32 @@ def get_dict(filename):
     d[symbol] = st
     return(d)
 
+def write_schema_to_array(path):
+    ary = []
+    with open(path, newline='') as csvfile:
+        funreader = csv.reader(csvfile, delimiter=',')
+        # do not read the first line of the csv file
+        next(funreader)
+        for row in funreader:
+            #print(row[0],row[2])
+            ary.append(row[2])
+    return(ary)
+
 # Remember to remove the Readme in the directory
 # py sp500fun.py > sp500fun.json
 if __name__ == "__main__":
-    path = os.environ['BMTOP']
+    pathtop = os.environ['BMTOP']
 #   path = path + '/equity-fun/sp500/data/20-07-12'
-    path = path + '/tmp/data'
-    files = os.listdir(path)
+    path1 = pathtop + '/tmp/data'
+    path2 = pathtop + '/bluemesa/config/schema-fun.csv'
+
+    myary = write_schema_to_array(path2)
+    print(myary)
+
+    files = os.listdir(path1)
     arr = []
     for file in files:
-        filename = os.path.join(path, file)
+        filename = os.path.join(path1, file)
         d = get_dict(filename)
         arr.append(d)
     myj = json.dumps(arr)
