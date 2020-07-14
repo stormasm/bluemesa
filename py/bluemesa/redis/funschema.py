@@ -28,7 +28,20 @@ def write_schema_to_redis(path):
             print(row[0],row[2])
             write_data_to_redis_list(rediskey,row[0],row[2])
 
+def write_schema_to_array(path):
+    ary = []
+    with open(path, newline='') as csvfile:
+        funreader = csv.reader(csvfile, delimiter=',')
+        # do not read the first line of the csv file
+        next(funreader)
+        for row in funreader:
+            #print(row[0],row[2])
+            ary.append(row[2])
+    return(ary)
+
 if __name__ == "__main__":
     path = os.environ['BMTOP']
     path = path + '/bluemesa/config/schema-fun.csv'
-    write_schema_to_redis(path)
+    #write_schema_to_redis(path)
+    myary = write_schema_to_array(path)
+    print(myary)
