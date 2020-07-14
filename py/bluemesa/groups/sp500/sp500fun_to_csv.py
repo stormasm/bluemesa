@@ -45,6 +45,7 @@ def write_schema_to_array(path):
         for row in funreader:
             #print(row[0],row[2])
             ary.append(row[2])
+    ary.insert(0,'symbol')
     return(ary)
 
 if __name__ == "__main__":
@@ -57,10 +58,7 @@ if __name__ == "__main__":
     files = os.listdir(path1)
 
     with open('sp500fun.csv', 'w', newline='') as csvfile:
-        #fieldnames = ['first_name', 'last_name']
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-        writer.writeheader()
+        csvwriter = csv.writer(csvfile, delimiter=',')
+        csvwriter.writerow(fieldnames)
         for file in files:
             filename = os.path.join(path1, file)
-            d = get_dict(filename)
-            writer.writerow(d)
