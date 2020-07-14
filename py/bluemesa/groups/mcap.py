@@ -5,7 +5,7 @@ import pandas as pd
 from bluemesa.redis import util
 
 path_bmtop = os.environ['BMTOP']
-ishares_dir = "/equity-etf/data/ishares/"
+mcap_dir = "/equity-data/groups/mcap/data/200710/"
 
 # Read the company name and symbol from a csv file
 # and write the data out to json
