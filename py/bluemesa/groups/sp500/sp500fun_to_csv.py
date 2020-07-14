@@ -1,5 +1,4 @@
 import csv
-import json
 import os
 import pandas as pd
 from pathlib import PurePath
@@ -48,22 +47,20 @@ def write_schema_to_array(path):
             ary.append(row[2])
     return(ary)
 
-# Remember to remove the Readme in the directory
-# py sp500fun.py > sp500fun.json
 if __name__ == "__main__":
     pathtop = os.environ['BMTOP']
 #   path = path + '/equity-fun/sp500/data/20-07-12'
     path1 = pathtop + '/tmp/data'
     path2 = pathtop + '/bluemesa/config/schema-fun.csv'
 
-    myary = write_schema_to_array(path2)
-    print(myary)
-
+    fieldnames = write_schema_to_array(path2)
     files = os.listdir(path1)
-    arr = []
-    for file in files:
-        filename = os.path.join(path1, file)
-        d = get_dict(filename)
-        arr.append(d)
-    myj = json.dumps(arr)
-    print(myj)
+
+    with open('sp500fun.csv', 'w', newline='') as csvfile:
+        #fieldnames = ['first_name', 'last_name']
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writeheader()
+        for file in files:
+            filename = os.path.join(path1, file)
+            d = get_dict(filename)
+            writer.writerow(d)
