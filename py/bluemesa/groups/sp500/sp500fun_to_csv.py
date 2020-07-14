@@ -23,16 +23,13 @@ def get_symbol_from_filename(filename):
     p2 = re.split("-fun",p1)[0]
     return(p2)
 
-## https://docs.python.org/3/library/csv.html#csv.DictWriter
-
-def get_dict(filename):
+def get_array(filename):
     df = pd.read_csv(filename, sep=',')
     series = df['Value']
     values = series.values
     values = modify_array_values(values)
     symbol = get_symbol_from_filename(filename)
     values.insert(0,symbol)
-    #print(values)
     return(values)
 
 def write_schema_to_array(path):
@@ -61,5 +58,5 @@ if __name__ == "__main__":
         csvwriter.writerow(fieldnames)
         for file in files:
             filename = os.path.join(path1, file)
-            d = get_dict(filename)
+            d = get_array(filename)
             csvwriter.writerow(d)
