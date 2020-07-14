@@ -9,7 +9,7 @@ mcap_dir = "/equity-data/groups/mcap/data/200710/"
 
 # Read the company name and symbol from a csv file
 # and write the data out to json
-def ishares_to_json(filename):
+def mcap_to_json(filename):
     filename = get_filename(symbol)
     df = pd.read_csv(filename, sep=',')
 
@@ -30,7 +30,7 @@ def ishares_to_json(filename):
 
 # Read the company name and symbol from a csv file
 # and write it out to some other format
-def ishares(symbol):
+def mcap(symbol):
     filename = get_filename(symbol)
     df = pd.read_csv(filename, sep=',')
     tseries = df['Ticker']
@@ -47,7 +47,7 @@ def ishares(symbol):
 
 # Read the symbol from a csv file
 # and write it out to a redis set
-def ishares_to_redis_set(symbol):
+def mcap_to_redis_set(symbol):
     filename = get_filename(symbol)
     key = "symbol-set-" + symbol
     df = pd.read_csv(filename, sep=',')
@@ -64,13 +64,13 @@ def check_args(arg):
     return(arg in group)
 
 def get_filename(symbol):
-    filename = path_bmtop + ishares_dir + symbol + ".csv"
+    filename = path_bmtop + mcap_dir + symbol + ".csv"
     return(filename)
 
 def process(symbol):
-    #ishares(symbol)
-    #ishares_to_json(symbol)
-    ishares_to_redis_set(symbol)
+    #mcap(symbol)
+    #mcap_to_json(symbol)
+    mcap_to_redis_set(symbol)
 
 def arg_process():
     default = 'pff'
@@ -86,7 +86,7 @@ def arg_process():
         symbol = default
     return(symbol)
 
-# py ishares.py > iwvn.json
+# py mcap.py > iwvn.json
 if __name__ == "__main__":
     symbol = arg_process()
     process(symbol)
