@@ -23,6 +23,8 @@ def get_symbol_from_filename(filename):
     p2 = re.split("-fun",p1)[0]
     return(p2)
 
+## https://docs.python.org/3/library/csv.html#csv.DictWriter
+
 def get_dict(filename):
     df = pd.read_csv(filename, sep=',')
     series = df['Value']
