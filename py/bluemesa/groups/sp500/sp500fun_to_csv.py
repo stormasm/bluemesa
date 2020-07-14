@@ -30,11 +30,10 @@ def get_dict(filename):
     series = df['Value']
     values = series.values
     values = modify_array_values(values)
-    d = {}
     symbol = get_symbol_from_filename(filename)
-    st = tuple(values)
-    d[symbol] = st
-    return(d)
+    values.insert(0,symbol)
+    #print(values)
+    return(values)
 
 def write_schema_to_array(path):
     ary = []
@@ -62,3 +61,5 @@ if __name__ == "__main__":
         csvwriter.writerow(fieldnames)
         for file in files:
             filename = os.path.join(path1, file)
+            d = get_dict(filename)
+            csvwriter.writerow(d)
