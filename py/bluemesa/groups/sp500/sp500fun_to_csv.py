@@ -46,8 +46,8 @@ def write_schema_to_array(path):
 
 if __name__ == "__main__":
     pathtop = os.environ['BMTOP']
-#   path = path + '/equity-fun/sp500/data/20-07-12'
-    path1 = pathtop + '/tmp/data'
+    path1 = pathtop + '/equity-fun/sp500/data/20-07-12'
+#   path1 = pathtop + '/tmp/data'
     path2 = pathtop + '/bluemesa/config/schema-fun.csv'
 
     fieldnames = write_schema_to_array(path2)
