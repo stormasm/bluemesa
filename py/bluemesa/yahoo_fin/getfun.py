@@ -4,20 +4,16 @@ from yahoo_fin.stock_info import get_stats
 from bluemesa.util import lineutil
 from bluemesa.redis import util
 
-## This is the symbol file that will be processed
+## This is the group symbol file that will be processed
+## Just enter a filename without the .txt extension
+## from the directory symbol_dir
 
 groupname = 'top'
 filename = groupname + '.txt'
-
 path = os.environ['BMTOP']
-
-#path_in  = path + '/bluemesa/config/symbols/sp500.txt'
 base_pathout = path + '/bluemesa/tmp/fun/in/'
-
 symbol_dir  = path + '/bluemesa/config/symbols/'
-
 symbol_file = symbol_dir + filename
-
 fun_dir = path + '/bluemesa/tmp/fun/in/'
 
 def mkdir_ifnothere(parent_dir, dirname):
@@ -34,6 +30,7 @@ def mkdir_ifnothere(parent_dir, dirname):
     # and if it does then do not create a new directory
     if (not mybool):
         os.mkdir(path)
+    path = path + '/'
     return(path)
 
 def get_day():
@@ -62,6 +59,7 @@ if __name__ == "__main__":
     ## This takes a symbol filename path and returns a set of symbols
     symbols = lineutil.get_lines_as_set(symbol_file)
     path_out = mkdir_ifnothere(base_pathout,groupname)
+    print(path_out)
     redis_check_key = "symbol-check-" + groupname
     process(symbols,path_out,redis_check_key)
 
