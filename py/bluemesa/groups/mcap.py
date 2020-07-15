@@ -49,7 +49,10 @@ def mcap(symbol):
     #names = map(str.lower,names)
     names = tuple(names)
     for i, name in enumerate(tickers):
+        ### Symbol and Market Cap
         print(tickers[i],names[i])
+        ### Symbols only
+        # print(tickers[i])
 
 # Read the symbol from a csv file
 # and write it out to a redis set
