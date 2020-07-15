@@ -5,7 +5,9 @@ from bluemesa.util import lineutil
 from bluemesa.redis import util
 
 ## This is the symbol file that will be processed
-filename = 'top.txt'
+
+groupname = 'top'
+filename = groupname + '.txt'
 
 path = os.environ['BMTOP']
 
@@ -58,6 +60,9 @@ if __name__ == "__main__":
 
     ## This takes a symbol filename path and returns a set of symbols
     symbols = lineutil.get_lines_as_set(symbol_file)
+
+
+
     process(symbols,path_out,"symbol-check")
 
 # The variable symbols is always a Python set which is nice
