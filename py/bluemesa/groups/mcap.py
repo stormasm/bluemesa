@@ -7,6 +7,12 @@ from bluemesa.redis import util
 path_bmtop = os.environ['BMTOP']
 mcap_dir = "/equity-data/groups/mcap/data/200710/"
 
+mcapfile = {
+  "g90": "mcap90up",
+  "g50": "mcap50-90",
+  "g30": "mcap30-50"
+}
+
 # Read the company name and symbol from a csv file
 # and write the data out to json
 def mcap_to_json(filename):
@@ -33,9 +39,9 @@ def mcap_to_json(filename):
 def mcap(symbol):
     filename = get_filename(symbol)
     df = pd.read_csv(filename, sep=',')
-    tseries = df['Ticker']
+    tseries = df['Symbol']
     tickers = tseries.values
-    nseries = df['Name']
+    nseries = df['Market Capitalization']
     names = nseries.values
     # convert strings in array to lowercase
     tickers = map(str.lower, tickers)
@@ -60,20 +66,21 @@ def mcap_to_redis_set(symbol):
         util.redis_set_write(key,tickers[i])
 
 def check_args(arg):
-    group = {'pff','iwv'}
+    group = {'g90','g50','g30'}
     return(arg in group)
 
 def get_filename(symbol):
+    symbol = mcapfile[symbol]
     filename = path_bmtop + mcap_dir + symbol + ".csv"
     return(filename)
 
 def process(symbol):
-    #mcap(symbol)
+    mcap(symbol)
     #mcap_to_json(symbol)
-    mcap_to_redis_set(symbol)
+    #mcap_to_redis_set(symbol)
 
 def arg_process():
-    default = 'pff'
+    default = 'g90'
     num = len(sys.argv)
     if num > 1:
         arg = sys.argv[1]
