@@ -12,7 +12,7 @@ filename = groupname + '.txt'
 path = os.environ['BMTOP']
 
 #path_in  = path + '/bluemesa/config/symbols/sp500.txt'
-path_out = path + '/bluemesa/tmp/fun/in/'
+base_pathout = path + '/bluemesa/tmp/fun/in/'
 
 symbol_dir  = path + '/bluemesa/config/symbols/'
 
@@ -34,6 +34,7 @@ def mkdir_ifnothere(parent_dir, dirname):
     # and if it does then do not create a new directory
     if (not mybool):
         os.mkdir(path)
+    return(path)
 
 def get_day():
     x = datetime.datetime.now()
@@ -60,10 +61,9 @@ if __name__ == "__main__":
 
     ## This takes a symbol filename path and returns a set of symbols
     symbols = lineutil.get_lines_as_set(symbol_file)
-
-
-
-    process(symbols,path_out,"symbol-check")
+    path_out = mkdir_ifnothere(base_pathout,groupname)
+    redis_check_key = "symbol-check-" + groupname
+    process(symbols,path_out,redis_check_key)
 
 # The variable symbols is always a Python set which is nice
 # because then we will not get any duplication of data
