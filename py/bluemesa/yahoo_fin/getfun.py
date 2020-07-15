@@ -59,7 +59,6 @@ if __name__ == "__main__":
     ## This takes a symbol filename path and returns a set of symbols
     symbols = lineutil.get_lines_as_set(symbol_file)
     path_out = mkdir_ifnothere(base_pathout,groupname)
-    print(path_out)
     redis_check_key = "symbol-check-" + groupname
     process(symbols,path_out,redis_check_key)
 
