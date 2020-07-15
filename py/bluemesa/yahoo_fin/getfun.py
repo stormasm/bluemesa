@@ -4,6 +4,35 @@ from yahoo_fin.stock_info import get_stats
 from bluemesa.util import lineutil
 from bluemesa.redis import util
 
+## This is the symbol file that will be processed
+filename = 'top.txt'
+
+path = os.environ['BMTOP']
+
+#path_in  = path + '/bluemesa/config/symbols/sp500.txt'
+path_out = path + '/bluemesa/tmp/fun/in/'
+
+symbol_dir  = path + '/bluemesa/config/symbols/'
+
+symbol_file = symbol_dir + filename
+
+fun_dir = path + '/bluemesa/tmp/fun/in/'
+
+def mkdir_ifnothere(parent_dir, dirname):
+    # check to see that parent_dir exists
+    # and if does not print problem and exit
+    mybool = os.path.isdir(parent_dir)
+    if (not mybool):
+        print("mkdir_ifnothere: parent directory does not exist exiting process")
+        exit()
+    # Path
+    path = os.path.join(parent_dir, dirname)
+    mybool = os.path.isdir(path)
+    # check to see if dirname exists
+    # and if it does then do not create a new directory
+    if (not mybool):
+        os.mkdir(path)
+
 def get_day():
     x = datetime.datetime.now()
     y = x.strftime("%y-%m-%d")
@@ -26,10 +55,9 @@ def process(symbols,path,key):
             util.redis_set_write(key,symbol)
 
 if __name__ == "__main__":
-    path = os.environ['BMTOP']
-    path_in  = path + '/bluemesa/config/symbols/sp500.txt'
-    path_out = path + '/bluemesa/tmp/fun/in/'
-    symbols = lineutil.get_lines_as_set(path_in)
+
+    ## This takes a symbol filename path and returns a set of symbols
+    symbols = lineutil.get_lines_as_set(symbol_file)
     process(symbols,path_out,"symbol-check")
 
 # The variable symbols is always a Python set which is nice
