@@ -11,10 +11,14 @@ from bluemesa.redis import util
 groupname = 'top'
 filename = groupname + '.txt'
 path = os.environ['BMTOP']
-base_pathout = path + '/bluemesa/tmp/fun/in/'
+
+## This is the directory where symbol files are located
 symbol_dir  = path + '/bluemesa/config/symbols/'
+## This is the actual symbol file name
 symbol_file = symbol_dir + filename
-fun_dir = path + '/bluemesa/tmp/fun/in/'
+
+## This is the base directory of where files get written to
+base_pathout = path + '/bluemesa/tmp/fun/in/'
 
 def mkdir_ifnothere(parent_dir, dirname):
     # check to see that parent_dir exists
