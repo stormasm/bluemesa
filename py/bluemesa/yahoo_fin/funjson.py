@@ -4,6 +4,10 @@ import pandas as pd
 from pathlib import PurePath
 import re
 
+path = os.environ['BMTOP']
+#path = path + '/equity-fun/sp500/data/20-07-12'
+path = path + '/equity-fun/mcap/mcap-g90'
+
 def modify_array_values(input):
     arr = []
     for value in input:
@@ -35,10 +39,9 @@ def get_dict(filename):
     return(d)
 
 # Remember to remove the Readme in the directory
-# py sp500fun.py > sp500fun.json
+# py funjson.py > sp500fun.json
+# py funjson.py > mcapfun.json
 if __name__ == "__main__":
-    path = os.environ['BMTOP']
-    path = path + '/equity-fun/sp500/data/20-07-12'
     files = os.listdir(path)
     arr = []
     for file in files:
