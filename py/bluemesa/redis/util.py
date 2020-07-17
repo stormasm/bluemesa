@@ -9,18 +9,18 @@ rc = redis.Redis(host='localhost', port=6379, db=0)
 def redis_write_field_value_to_hash(key,field,value):
     rc.hset(key,field,value)
 
-def redis_get_field(key):
-    name = rc.hget("testhash",key)
+def redis_get_field(key,field):
+    name = rc.hget(key,field)
     name = name.decode("utf-8")
     return(name)
 
 def redis_hash_to_python_dict(key):
     mydict = {}
-    keys = rc.hkeys(key)
-    for key in keys:
-        key = key.decode("utf-8")
-        name = redis_get_field(key)
-        mydict[key] = name
+    fields = rc.hkeys(key)
+    for field in fields:
+        field = field.decode("utf-8")
+        value = redis_get_field(key,field)
+        mydict[field] = value
     return(mydict)
 
 def redis_set_to_python_set(key):
@@ -69,5 +69,9 @@ if __name__ == "__main__":
     redis_write_field_value_to_hash(k,'ui','ubiquiti')
     redis_write_field_value_to_hash(k,'amzn','amazon')
     mydict = redis_hash_to_python_dict(k)
-    ok1 = mydict['aapl']
-    #print(ok1)
+    val = mydict['aapl']
+    assert val == 'apple'
+    val = mydict['ui']
+    assert val == 'ubiquiti'
+    val = mydict['amzn']
+    assert val == 'amazon'
