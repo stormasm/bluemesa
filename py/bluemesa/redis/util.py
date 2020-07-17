@@ -6,6 +6,23 @@ import redis
 
 rc = redis.Redis(host='localhost', port=6379, db=0)
 
+def redis_write_field_value_to_hash(key,field,value):
+    rc.hset(key,field,value)
+
+def redis_get_field(key):
+    name = rc.hget("testhash",key)
+    name = name.decode("utf-8")
+    return(name)
+
+def redis_hash_to_python_dict(key):
+    mydict = {}
+    keys = rc.hkeys(key)
+    for key in keys:
+        key = key.decode("utf-8")
+        name = redis_get_field(key)
+        mydict[key] = name
+    return(mydict)
+
 def redis_set_to_python_set(key):
     members = set()
     rset = rc.smembers(key)
@@ -47,3 +64,10 @@ if __name__ == "__main__":
     redis_delete(k)
     val = rc.exists(k)
     assert val == False
+    k = "myhash"
+    redis_write_field_value_to_hash(k,'aapl','apple')
+    redis_write_field_value_to_hash(k,'ui','ubiquiti')
+    redis_write_field_value_to_hash(k,'amzn','amazon')
+    mydict = redis_hash_to_python_dict(k)
+    ok1 = mydict['aapl']
+    #print(ok1)
