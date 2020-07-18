@@ -9,7 +9,7 @@ rc = redis.Redis(host='localhost', port=6379, db=0)
 def redis_write_field_value_to_hash(key,field,value):
     rc.hset(key,field,value)
 
-def redis_get_field(key,field):
+def redis_get_value(key,field):
     name = rc.hget(key,field)
     name = name.decode("utf-8")
     return(name)
@@ -19,7 +19,7 @@ def redis_hash_to_python_dict(key):
     fields = rc.hkeys(key)
     for field in fields:
         field = field.decode("utf-8")
-        value = redis_get_field(key,field)
+        value = redis_get_value(key,field)
         mydict[field] = value
     return(mydict)
 
