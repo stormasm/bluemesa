@@ -54,6 +54,29 @@ def mcap(symbol):
         ### Symbols only
         # print(tickers[i])
 
+# Read the company name and symbol from a csv file
+# and write it out to some other format
+def mcap_to_redis_hash(symbol):
+    filename = get_filename(symbol)
+    #key = "symbol-hash-" + symbol
+    key = "symbol-hash"
+    df = pd.read_csv(filename, sep=',')
+    tseries = df['Symbol']
+    tickers = tseries.values
+    nseries = df['Company Name']
+    names = nseries.values
+    # convert strings in array to lowercase
+    tickers = map(str.lower, tickers)
+    tickers = tuple(tickers)
+    #names = map(str.lower,names)
+    names = tuple(names)
+    for i, name in enumerate(tickers):
+        ### Symbols only
+        # print(tickers[i])
+        ### Symbol and Company Name
+        print(tickers[i],names[i])
+        util.redis_write_field_value_to_hash(key,tickers[i],names[i])
+
 # Read the symbol from a csv file
 # and write it out to a redis set
 def mcap_to_redis_set(symbol):
@@ -78,9 +101,10 @@ def get_filename(symbol):
     return(filename)
 
 def process(symbol):
-    mcap(symbol)
+    #mcap(symbol)
     #mcap_to_json(symbol)
     #mcap_to_redis_set(symbol)
+    mcap_to_redis_hash(symbol)
 
 def arg_process():
     default = 'g90'
