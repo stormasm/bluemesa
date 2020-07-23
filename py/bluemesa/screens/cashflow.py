@@ -1,6 +1,7 @@
 import csv
 import json
 import os
+import re
 
 from os import listdir
 from os.path import isfile, join
@@ -11,6 +12,10 @@ path = os.environ['BMTOP']
 #filename_in = path + '/bluemesa/data/sp500fun.json'
 filename_in = path + '/bluemesa/data/mcapfun.json'
 filename_out = path + '/bluemesa/tmp/fun/out/cashflow.csv'
+
+def remove_unwanted_chars(input):
+    c = re.sub('[M,B,%]', '', input)
+    return(c)
 
 def getCashFlow():
     arr = []
@@ -23,9 +28,13 @@ def getCashFlow():
                 ## 48 is the operating cash flow
                 ## 49 is the levered free cash flow
                 fyield = dict[k][19]
+                fyield = remove_unwanted_chars(fyield)
                 payout = dict[k][23]
+                payout = remove_unwanted_chars(payout)
                 operating = dict[k][48]
+                operating = remove_unwanted_chars(operating)
                 free = dict[k][49]
+                free = remove_unwanted_chars(free)
                 name = symboltable.get_symbol_name(k)
                 arr.append([idx,k,name,fyield,payout,operating,free])
     return arr
