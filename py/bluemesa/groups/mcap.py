@@ -1,5 +1,6 @@
 import json
 import os
+import re
 import sys
 import pandas as pd
 from bluemesa.redis import util
@@ -12,6 +13,10 @@ mcapfile = {
   "g50": "mcap50-90",
   "g30": "mcap30-50"
 }
+
+def remove_unwanted_chars(input):
+    c = re.sub('[M,B,%,$]', '', input)
+    return(c)
 
 # Read the company name and symbol from a csv file
 # and write the data out to json
@@ -50,7 +55,8 @@ def mcap(symbol):
     mcap = tuple(mcap)
     for i, name in enumerate(tickers):
         ### Symbol and Market Cap
-        print(tickers[i],mcap[i])
+        mcapv = remove_unwanted_chars(mcap[i])
+        print(tickers[i],mcapv)
         ### Symbols only
         # print(tickers[i])
 
