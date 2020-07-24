@@ -60,6 +60,27 @@ def mcap(symbol):
         ### Symbols only
         # print(tickers[i])
 
+# Read the company symbol and market cap from a csv file
+# and write it out to redis
+def symbol_hash_mcap(symbol):
+    key = "symbol-hash-mcap"
+    filename = get_filename(symbol)
+    df = pd.read_csv(filename, sep=',')
+    tseries = df['Symbol']
+    tickers = tseries.values
+    nseries = df['Market Capitalization']
+    mcap = nseries.values
+    # convert strings in array to lowercase
+    tickers = map(str.lower, tickers)
+    tickers = tuple(tickers)
+    #names = map(str.lower,names)
+    mcap = tuple(mcap)
+    for i, name in enumerate(tickers):
+        ### Symbol and Market Cap
+        mcapv = remove_unwanted_chars(mcap[i])
+        print(tickers[i],mcapv)
+        util.redis_write_field_value_to_hash(key,tickers[i],mcapv)
+
 # Read the company name and symbol from a csv file
 # and write it out to some other format
 def mcap_to_redis_hash(symbol):
@@ -107,7 +128,8 @@ def get_filename(symbol):
     return(filename)
 
 def process(symbol):
-    mcap(symbol)
+    #mcap(symbol)
+    symbol_hash_mcap(symbol)
     #mcap_to_json(symbol)
     #mcap_to_redis_set(symbol)
     #mcap_to_redis_hash(symbol)
