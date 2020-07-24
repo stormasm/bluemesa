@@ -34,7 +34,7 @@ def mcap_to_json(filename):
     myjson = json.dumps(d)
     print(myjson)
 
-# Read the company name and symbol from a csv file
+# Read the company symbol and market cap from a csv file
 # and write it out to some other format
 def mcap(symbol):
     filename = get_filename(symbol)
@@ -42,15 +42,15 @@ def mcap(symbol):
     tseries = df['Symbol']
     tickers = tseries.values
     nseries = df['Market Capitalization']
-    names = nseries.values
+    mcap = nseries.values
     # convert strings in array to lowercase
     tickers = map(str.lower, tickers)
     tickers = tuple(tickers)
     #names = map(str.lower,names)
-    names = tuple(names)
+    mcap = tuple(mcap)
     for i, name in enumerate(tickers):
         ### Symbol and Market Cap
-        print(tickers[i],names[i])
+        print(tickers[i],mcap[i])
         ### Symbols only
         # print(tickers[i])
 
@@ -101,10 +101,10 @@ def get_filename(symbol):
     return(filename)
 
 def process(symbol):
-    #mcap(symbol)
+    mcap(symbol)
     #mcap_to_json(symbol)
     #mcap_to_redis_set(symbol)
-    mcap_to_redis_hash(symbol)
+    #mcap_to_redis_hash(symbol)
 
 def arg_process():
     default = 'g90'
