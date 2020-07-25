@@ -39,6 +39,27 @@ def mcap_to_json(filename):
     myjson = json.dumps(d)
     print(myjson)
 
+# Read the company name and symbol from a csv file
+# and write the data out to json
+def symbol_hash_mcap_to_json(filename):
+    filename = get_filename(symbol)
+    df = pd.read_csv(filename, sep=',')
+
+    sseries = df['Symbol']
+    svalues = sseries.values
+    # convert strings in array to lowercase
+    svlc = map(str.lower, svalues)
+    symbols = tuple(svlc)
+    nseries = df['Market Capitalization']
+
+    nvalues = nseries.values
+    names = tuple(nvalues)
+    d = {}
+    for s, n in zip(symbols, names):
+        d[s] = n
+    myjson = json.dumps(d)
+    print(myjson)
+
 # Read the company symbol and market cap from a csv file
 # and write it out to some other format
 def mcap(symbol):
@@ -129,7 +150,8 @@ def get_filename(symbol):
 
 def process(symbol):
     #mcap(symbol)
-    symbol_hash_mcap(symbol)
+    #symbol_hash_mcap(symbol)
+    symbol_hash_mcap_to_json(symbol)
     #mcap_to_json(symbol)
     #mcap_to_redis_set(symbol)
     #mcap_to_redis_hash(symbol)
