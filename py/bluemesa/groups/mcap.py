@@ -53,9 +53,9 @@ def symbol_hash_mcap_to_json(filename):
     nseries = df['Market Capitalization']
 
     nvalues = nseries.values
-    names = tuple(nvalues)
+    mcap = tuple(nvalues)
     d = {}
-    for s, n in zip(symbols, names):
+    for s, n in zip(symbols, mcap):
         d[s] = n
     myjson = json.dumps(d)
     print(myjson)
