@@ -7,6 +7,7 @@ from os import listdir
 from os.path import isfile, join
 
 from bluemesa.redis import symboltable
+from bluemesa.redis import util
 
 path = os.environ['BMTOP']
 #filename_in = path + '/bluemesa/data/sp500fun.json'
@@ -36,15 +37,16 @@ def getCashFlow():
                 free = dict[k][49]
                 free = remove_unwanted_chars(free)
                 name = symboltable.get_symbol_name(k)
-                arr.append([idx,k,name,fyield,payout,operating,free])
+                mcap = util.redis_get_value("symbol-hash-mcap",k)
+                arr.append([idx,k,name,fyield,payout,mcap,operating,free])
     return arr
 
 def write_csv(data):
     with open(filename_out, 'w', newline='') as csvfile:
         csvwriter = csv.writer(csvfile, delimiter=',')
-        csvwriter.writerow(['index'] + ['symbol'] + ['name'] + ['yield'] + ['payout'] + ['operating'] + ['levered'])
+        csvwriter.writerow(['index'] + ['symbol'] + ['name'] + ['yield'] + ['payout'] + ['mcap'] + ['operating'] + ['levered'])
         for row in data:
-            csvwriter.writerow([row[0]] + [row[1]] + [row[2]] + [row[3]] + [row[4]] + [row[5]] + [row[6]])
+            csvwriter.writerow([row[0]] + [row[1]] + [row[2]] + [row[3]] + [row[4]] + [row[5]] + [row[6]] + [row[7]])
 
 if __name__ == "__main__":
     data = getCashFlow()
