@@ -56,7 +56,7 @@ def symbol_hash_mcap_to_json(filename):
     mcap = tuple(nvalues)
     d = {}
     for s, n in zip(symbols, mcap):
-        d[s] = n
+        d[s] = remove_unwanted_chars(n)
     myjson = json.dumps(d)
     print(myjson)
 
