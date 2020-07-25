@@ -83,7 +83,7 @@ def mcap(symbol):
 
 # Read the company symbol and market cap from a csv file
 # and write it out to redis
-def symbol_hash_mcap(symbol):
+def symbol_hash_mcap_to_redis(symbol):
     key = "symbol-hash-mcap"
     filename = get_filename(symbol)
     df = pd.read_csv(filename, sep=',')
@@ -150,7 +150,7 @@ def get_filename(symbol):
 
 def process(symbol):
     #mcap(symbol)
-    #symbol_hash_mcap(symbol)
+    #symbol_hash_mcap_to_redis(symbol)
     symbol_hash_mcap_to_json(symbol)
     #mcap_to_json(symbol)
     #mcap_to_redis_set(symbol)
