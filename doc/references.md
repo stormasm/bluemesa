@@ -3,8 +3,7 @@
 
 #### Corporate Finance
 
-* [Financial Statements: A Beginner's Guide](https://www.causal.app/blog/whats-a-financial-statement)
-* [Hn Ref](https://news.ycombinator.com/item?id=23825606)
+* [Financial Statements: A Beginner's Guide](https://www.causal.app/blog/whats-a-financial-statement) [Hn Ref](https://news.ycombinator.com/item?id=23825606)
 
 #### Aristocrats
 
