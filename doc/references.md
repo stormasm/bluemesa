@@ -1,6 +1,11 @@
 
 ## Bluemesa References
 
+#### Corporate Finance
+
+* [Financial Statements: A Beginner's Guide](https://www.causal.app/blog/whats-a-financial-statement)
+* [Hn Ref](https://news.ycombinator.com/item?id=23825606)
+
 #### Aristocrats
 
 * [The 2020 List](https://www.dividendpower.org/2020/02/03/the-list-of-dividend-aristocrats-in-2020/)
