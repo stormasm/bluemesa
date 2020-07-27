@@ -15,6 +15,8 @@
 
 * [Adjustments to Reconcile Net Income](https://www.investopedia.com/ask/answers/010715/what-being-adjusted-adjusted-net-income.asp)
 
+* [What is Accounts Receivable ?](https://www.accountingcoach.com/blog/what-is-accounts-receivable)
+
 ## Symbol Lists
 
 #### Aristocrats
