@@ -5,6 +5,10 @@
 
 * [Financial Statements: A Beginner's Guide](https://www.causal.app/blog/whats-a-financial-statement) [[Hn Ref](https://news.ycombinator.com/item?id=23825606)]
 
+#### Cash Flow
+
+[Understanding the Cash Flow Statement](https://www.investopedia.com/investing/what-is-a-cash-flow-statement/#:~:text=Cash%20flow%20is%20calculated%20by,one%20period%20to%20the%20next.)
+
 #### Aristocrats
 
 * [The 2020 List](https://www.dividendpower.org/2020/02/03/the-list-of-dividend-aristocrats-in-2020/)
