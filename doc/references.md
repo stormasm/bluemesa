@@ -1,13 +1,15 @@
 
-## Bluemesa References
+# Bluemesa References
 
-#### Corporate Finance
+## Corporate Finance
 
 * [Financial Statements: A Beginner's Guide](https://www.causal.app/blog/whats-a-financial-statement) [[Hn Ref](https://news.ycombinator.com/item?id=23825606)]
 
 #### Cash Flow
 
 * [Understanding the Cash Flow Statement](https://www.investopedia.com/investing/what-is-a-cash-flow-statement/#:~:text=Cash%20flow%20is%20calculated%20by,one%20period%20to%20the%20next.)
+
+## Symbol Lists
 
 #### Aristocrats
 
