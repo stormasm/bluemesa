@@ -9,6 +9,10 @@
 
 * [Understanding the Cash Flow Statement](https://www.investopedia.com/investing/what-is-a-cash-flow-statement)
 
+##### Cash Flow Details
+
+* [The Impact of Share Based Compensation](https://sfmagazine.com/post-entry/december-2017-the-impact-of-share-based-compensation/)
+
 ## Symbol Lists
 
 #### Aristocrats
