@@ -13,6 +13,8 @@
 
 * [The Impact of Share Based Compensation](https://sfmagazine.com/post-entry/december-2017-the-impact-of-share-based-compensation/)
 
+* [Adjustments to Reconcile Net Income](https://www.investopedia.com/ask/answers/010715/what-being-adjusted-adjusted-net-income.asp)
+
 ## Symbol Lists
 
 #### Aristocrats
