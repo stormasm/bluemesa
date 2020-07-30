@@ -314,14 +314,6 @@ class XBRLParser(object):
             self.data_processing(income_loss, xbrl, ignore_errors,
                                  logger, context_ids)
 
-        net_income_shareholders = \
-            xbrl.find_all(name=re.compile("(us-gaap:netincomeavailabletocommon\
-                          stockholdersbasic)",
-                          re.IGNORECASE | re.MULTILINE))
-        gaap_obj.net_income_shareholders = \
-            self.data_processing(net_income_shareholders, xbrl, ignore_errors,
-                                 logger, context_ids)
-
         net_income_loss = \
             xbrl.find_all(name=re.compile("^us-gaap:netincomeloss$",
                           re.IGNORECASE | re.MULTILINE))
@@ -602,7 +594,7 @@ class GAAP(object):
                  income_tax_expense_benefit=0.0,
 #                extraordary_items_gain_loss=0.0,
                  income_loss=0.0,
-                 net_income_shareholders=0.0,
+#                 net_income_shareholders=0.0,
 #                 preferred_stock_dividends=0.0,
 #                 net_income_loss_noncontrolling=0.0,
                  net_income_parent=0.0,
@@ -643,7 +635,7 @@ class GAAP(object):
 
         self.income_tax_expense_benefit = income_tax_expense_benefit
         self.income_loss = income_loss
-        self.net_income_shareholders = net_income_shareholders
+#        self.net_income_shareholders = net_income_shareholders
         self.net_income_parent = net_income_parent
         self.net_income_loss = net_income_loss
 
@@ -695,7 +687,7 @@ class GAAPSerializer(Schema):
 #    interest_and_debt_expense = fields.Number()
 #    income_before_equity_investments = fields.Number()
     income_loss = fields.Number()
-    net_income_shareholders = fields.Number()
+#    net_income_shareholders = fields.Number()
     net_income_loss = fields.Number()
     comprehensive_income = fields.Number()
     comprehensive_income_parent = fields.Number()
