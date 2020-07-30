@@ -332,28 +332,6 @@ class XBRLParser(object):
             self.data_processing(income_tax_expense_benefit, xbrl,
                                  ignore_errors, logger, context_ids)
 
-        income_continuing_operations_tax = \
-            xbrl.find_all(name=re.compile("(us-gaap:IncomeLossBeforeExtraordinaryItems\
-                          AndCumulativeEffectOfChangeInAccountingPrinciple)",
-                          re.IGNORECASE | re.MULTILINE))
-        gaap_obj.income_continuing_operations_tax = \
-            self.data_processing(income_continuing_operations_tax, xbrl,
-                                 ignore_errors, logger, context_ids)
-
-        income_discontinued_operations = \
-            xbrl.find_all(name=re.compile("(us-gaap:)[^s]*(discontinued"
-                          "operation)", re.IGNORECASE | re.MULTILINE))
-        gaap_obj.income_discontinued_operations = \
-            self.data_processing(income_discontinued_operations, xbrl,
-                                 ignore_errors, logger, context_ids)
-
-#        extraordary_items_gain_loss = \
-#            xbrl.find_all(name=re.compile("(us-gaap:extraordinaryitem"
-#                          "netoftax)", re.IGNORECASE | re.MULTILINE))
-#        gaap_obj.extraordary_items_gain_loss = \
-#            self.data_processing(extraordary_items_gain_loss, xbrl,
-#                                 ignore_errors, logger, context_ids)
-
         income_loss = \
             xbrl.find_all(name=re.compile("(us-gaap:)[^s]*(incomeloss)",
                           re.IGNORECASE | re.MULTILINE))
@@ -373,21 +351,6 @@ class XBRLParser(object):
         gaap_obj.net_income_shareholders = \
             self.data_processing(net_income_shareholders, xbrl, ignore_errors,
                                  logger, context_ids)
-
-        preferred_stock_dividends = \
-            xbrl.find_all(name=re.compile("(us-gaap:preferredstockdividendsand\
-                          otheradjustments)", re.IGNORECASE | re.MULTILINE))
-        gaap_obj.preferred_stock_dividends = \
-            self.data_processing(preferred_stock_dividends, xbrl,
-                ignore_errors, logger, context_ids)
-
-        net_income_loss_noncontrolling = \
-            xbrl.find_all(name=re.compile("(us-gaap:netincomelossattributableto\
-                          noncontrollinginterest)",
-                          re.IGNORECASE | re.MULTILINE))
-        gaap_obj.net_income_loss_noncontrolling = \
-            self.data_processing(net_income_loss_noncontrolling, xbrl,
-                                 ignore_errors, logger, context_ids)
 
         net_income_loss = \
             xbrl.find_all(name=re.compile("^us-gaap:netincomeloss$",
