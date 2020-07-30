@@ -426,36 +426,12 @@ class XBRLParser(object):
             self.data_processing(net_cash_flows_investing_continuing, xbrl,
                                  ignore_errors, logger, context_ids)
 
-        net_cash_flows_financing_continuing = \
-            xbrl.find_all(name=re.compile("(us-gaap:netcashprovidedbyusedin\
-                          financingactivitiescontinuingoperations)",
-                          re.IGNORECASE | re.MULTILINE))
-        gaap_obj.net_cash_flows_financing_continuing = \
-            self.data_processing(net_cash_flows_financing_continuing, xbrl,
-                                 ignore_errors, logger, context_ids)
-
         net_cash_flows_operating_discontinued = \
             xbrl.find_all(name=re.compile("(us-gaap:cashprovidedbyusedin\
                           operatingactivitiesdiscontinuedoperations)",
                           re.IGNORECASE | re.MULTILINE))
         gaap_obj.net_cash_flows_operating_discontinued = \
             self.data_processing(net_cash_flows_operating_discontinued, xbrl,
-                                 ignore_errors, logger, context_ids)
-
-#        net_cash_flows_investing_discontinued = \
-#            xbrl.find_all(name=re.compile("(us-gaap:cashprovidedbyusedin\
-#                          investingactivitiesdiscontinuedoperations)",
-#                          re.IGNORECASE | re.MULTILINE))
-#        gaap_obj.net_cash_flows_investing_discontinued = \
-#            self.data_processing(net_cash_flows_investing_discontinued, xbrl,
-#                                 ignore_errors, logger, context_ids)
-
-        net_cash_flows_discontinued = \
-            xbrl.find_all(name=re.compile("(us-gaap:netcashprovidedbyusedin\
-                          discontinuedoperations)",
-                          re.IGNORECASE | re.MULTILINE))
-        gaap_obj.net_cash_flows_discontinued = \
-            self.data_processing(net_cash_flows_discontinued, xbrl,
                                  ignore_errors, logger, context_ids)
 
         common_shares_outstanding = \
@@ -718,7 +694,7 @@ class GAAP(object):
 #                extraordary_items_gain_loss=0.0,
                  income_loss=0.0,
                  net_income_shareholders=0.0,
-                 preferred_stock_dividends=0.0,
+#                 preferred_stock_dividends=0.0,
                  net_income_loss_noncontrolling=0.0,
                  net_income_parent=0.0,
                  net_income_loss=0.0,
@@ -731,7 +707,7 @@ class GAAP(object):
                  net_cash_flows_financing=0.0,
                  net_cash_flows_operating_continuing=0.0,
                  net_cash_flows_investing_continuing=0.0,
-                 net_cash_flows_financing_continuing=0.0,
+#                 net_cash_flows_financing_continuing=0.0,
                  net_cash_flows_operating_discontinued=0.0,
 #                 net_cash_flows_investing_discontinued=0.0,
                  net_cash_flows_discontinued=0.0,
@@ -768,7 +744,7 @@ class GAAP(object):
 #       self.extraordary_items_gain_loss = extraordary_items_gain_loss
         self.income_loss = income_loss
         self.net_income_shareholders = net_income_shareholders
-        self.preferred_stock_dividends = preferred_stock_dividends
+#        self.preferred_stock_dividends = preferred_stock_dividends
         self.net_income_loss_noncontrolling = net_income_loss_noncontrolling
         self.net_income_parent = net_income_parent
         self.net_income_loss = net_income_loss
@@ -783,8 +759,7 @@ class GAAP(object):
             net_cash_flows_operating_continuing
         self.net_cash_flows_investing_continuing = \
             net_cash_flows_investing_continuing
-        self.net_cash_flows_financing_continuing = \
-            net_cash_flows_financing_continuing
+
         self.net_cash_flows_operating_discontinued = \
             net_cash_flows_operating_discontinued
 #        self.net_cash_flows_investing_discontinued = \
@@ -825,7 +800,7 @@ class GAAPSerializer(Schema):
 #   extraordary_items_gain_loss = fields.Number()
     income_loss = fields.Number()
     net_income_shareholders = fields.Number()
-    preferred_stock_dividends = fields.Number()
+#    preferred_stock_dividends = fields.Number()
     net_income_loss_noncontrolling = fields.Number()
     net_income_parent = fields.Number()
     net_income_loss = fields.Number()
@@ -838,7 +813,7 @@ class GAAPSerializer(Schema):
     net_cash_flows_financing = fields.Number()
     net_cash_flows_operating_continuing = fields.Number()
     net_cash_flows_investing_continuing = fields.Number()
-    net_cash_flows_financing_continuing = fields.Number()
+#    net_cash_flows_financing_continuing = fields.Number()
     net_cash_flows_operating_discontinued = fields.Number()
 #    net_cash_flows_investing_discontinued = fields.Number()
     net_cash_flows_discontinued = fields.Number()
