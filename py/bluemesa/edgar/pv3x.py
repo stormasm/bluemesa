@@ -407,12 +407,12 @@ class XBRLParser(object):
             self.data_processing(income_discontinued_operations, xbrl,
                                  ignore_errors, logger, context_ids)
 
-        extraordary_items_gain_loss = \
-            xbrl.find_all(name=re.compile("(us-gaap:extraordinaryitem"
-                          "netoftax)", re.IGNORECASE | re.MULTILINE))
-        gaap_obj.extraordary_items_gain_loss = \
-            self.data_processing(extraordary_items_gain_loss, xbrl,
-                                 ignore_errors, logger, context_ids)
+#        extraordary_items_gain_loss = \
+#            xbrl.find_all(name=re.compile("(us-gaap:extraordinaryitem"
+#                          "netoftax)", re.IGNORECASE | re.MULTILINE))
+#        gaap_obj.extraordary_items_gain_loss = \
+#            self.data_processing(extraordary_items_gain_loss, xbrl,
+#                                 ignore_errors, logger, context_ids)
 
         income_loss = \
             xbrl.find_all(name=re.compile("(us-gaap:)[^s]*(incomeloss)",
@@ -812,7 +812,7 @@ class GAAP(object):
                  income_before_equity_investments=0.0,
                  income_from_equity_investments=0.0,
                  income_tax_expense_benefit=0.0,
-                 extraordary_items_gain_loss=0.0,
+#                extraordary_items_gain_loss=0.0,
                  income_loss=0.0,
                  net_income_shareholders=0.0,
                  preferred_stock_dividends=0.0,
@@ -862,7 +862,7 @@ class GAAP(object):
         self.income_from_equity_investments = income_from_equity_investments
         self.income_tax_expense_benefit = income_tax_expense_benefit
         self.net_income_shareholders = net_income_shareholders
-        self.extraordary_items_gain_loss = extraordary_items_gain_loss
+#       self.extraordary_items_gain_loss = extraordary_items_gain_loss
         self.income_loss = income_loss
         self.net_income_shareholders = net_income_shareholders
         self.preferred_stock_dividends = preferred_stock_dividends
@@ -919,7 +919,7 @@ class GAAPSerializer(Schema):
     income_before_equity_investments = fields.Number()
     income_from_equity_investments = fields.Number()
     income_tax_expense_benefit = fields.Number()
-    extraordary_items_gain_loss = fields.Number()
+#   extraordary_items_gain_loss = fields.Number()
     income_loss = fields.Number()
     net_income_shareholders = fields.Number()
     preferred_stock_dividends = fields.Number()
