@@ -690,12 +690,12 @@ class GAAP(object):
 #        self.comprehensive_income_parent = comprehensive_income_parent
 #        self.comprehensive_income_interest = comprehensive_income_interest
 #        self.net_cash_flows_operating = net_cash_flows_operating
-        self.net_cash_flows_investing = net_cash_flows_investing
-        self.net_cash_flows_financing = net_cash_flows_financing
-        self.net_cash_flows_operating_continuing = \
-            net_cash_flows_operating_continuing
-        self.net_cash_flows_investing_continuing = \
-            net_cash_flows_investing_continuing
+#        self.net_cash_flows_investing = net_cash_flows_investing
+#        self.net_cash_flows_financing = net_cash_flows_financing
+#        self.net_cash_flows_operating_continuing = \
+#            net_cash_flows_operating_continuing
+#        self.net_cash_flows_investing_continuing = \
+#            net_cash_flows_investing_continuing
 
 #        self.net_cash_flows_operating_discontinued = \
 #            net_cash_flows_operating_discontinued
