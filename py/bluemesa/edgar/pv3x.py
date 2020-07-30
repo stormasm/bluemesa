@@ -352,13 +352,6 @@ class XBRLParser(object):
             self.data_processing(net_income_loss, xbrl, ignore_errors,
                                  logger, context_ids)
 
-        other_comprehensive_income = \
-            xbrl.find_all(name=re.compile("(us-gaap:othercomprehensiveincomeloss\
-                          netoftax)", re.IGNORECASE | re.MULTILINE))
-        gaap_obj.other_comprehensive_income = \
-            self.data_processing(other_comprehensive_income, xbrl,
-                ignore_errors, logger, context_ids)
-
         comprehensive_income = \
             xbrl.find_all(name=re.compile("(us-gaap:comprehensiveincome)",
                           re.IGNORECASE | re.MULTILINE))
@@ -645,7 +638,7 @@ class GAAP(object):
 #                 net_income_loss_noncontrolling=0.0,
                  net_income_parent=0.0,
                  net_income_loss=0.0,
-                 other_comprehensive_income=0.0,
+#                 other_comprehensive_income=0.0,
                  comprehensive_income=0.0,
                  comprehensive_income_parent=0.0,
                  comprehensive_income_interest=0.0,
@@ -657,7 +650,7 @@ class GAAP(object):
 #                 net_cash_flows_financing_continuing=0.0,
                  net_cash_flows_operating_discontinued=0.0,
 #                 net_cash_flows_investing_discontinued=0.0,
-                 net_cash_flows_discontinued=0.0,
+#                 net_cash_flows_discontinued=0.0,
                  common_shares_outstanding=0.0,
                  common_shares_issued=0.0,
                  common_shares_authorized=0.0):
@@ -701,7 +694,7 @@ class GAAP(object):
 #            net_cash_flows_operating_discontinued
 #        self.net_cash_flows_investing_discontinued = \
 #            net_cash_flows_investing_discontinued
-        self.net_cash_flows_discontinued = net_cash_flows_discontinued
+#        self.net_cash_flows_discontinued = net_cash_flows_discontinued
         self.common_shares_outstanding = common_shares_outstanding
         self.common_shares_issued = common_shares_issued
         self.common_shares_authorized = common_shares_authorized
@@ -741,7 +734,7 @@ class GAAPSerializer(Schema):
 #    net_income_loss_noncontrolling = fields.Number()
     net_income_parent = fields.Number()
     net_income_loss = fields.Number()
-    other_comprehensive_income = fields.Number()
+#    other_comprehensive_income = fields.Number()
     comprehensive_income = fields.Number()
     comprehensive_income_parent = fields.Number()
     comprehensive_income_interest = fields.Number()
@@ -753,7 +746,7 @@ class GAAPSerializer(Schema):
 #    net_cash_flows_financing_continuing = fields.Number()
 #    net_cash_flows_operating_discontinued = fields.Number()
 #    net_cash_flows_investing_discontinued = fields.Number()
-    net_cash_flows_discontinued = fields.Number()
+#    net_cash_flows_discontinued = fields.Number()
     common_shares_outstanding = fields.Number()
     common_shares_issued = fields.Number()
     common_shares_authorized = fields.Number()
