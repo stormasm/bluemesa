@@ -318,13 +318,6 @@ class XBRLParser(object):
             self.data_processing(income_before_equity_investments, xbrl,
                                  ignore_errors, logger, context_ids)
 
-        income_from_equity_investments = \
-            xbrl.find_all(name=re.compile("(us-gaap:incomelossfromequity"
-                          "methodinvestments)", re.IGNORECASE | re.MULTILINE))
-        gaap_obj.income_from_equity_investments = \
-            self.data_processing(income_from_equity_investments, xbrl,
-                                 ignore_errors, logger, context_ids)
-
         income_tax_expense_benefit = \
             xbrl.find_all(name=re.compile("(us-gaap:incometaxexpensebenefit)",
                           re.IGNORECASE | re.MULTILINE))
@@ -689,13 +682,13 @@ class GAAP(object):
                  nonoperating_income_loss=0.0,
                  interest_and_debt_expense=0.0,
                  income_before_equity_investments=0.0,
-                 income_from_equity_investments=0.0,
+#                 income_from_equity_investments=0.0,
                  income_tax_expense_benefit=0.0,
 #                extraordary_items_gain_loss=0.0,
                  income_loss=0.0,
                  net_income_shareholders=0.0,
 #                 preferred_stock_dividends=0.0,
-                 net_income_loss_noncontrolling=0.0,
+#                 net_income_loss_noncontrolling=0.0,
                  net_income_parent=0.0,
                  net_income_loss=0.0,
                  other_comprehensive_income=0.0,
@@ -738,14 +731,14 @@ class GAAP(object):
         self.interest_and_debt_expense = interest_and_debt_expense
         self.income_before_equity_investments = \
             income_before_equity_investments
-        self.income_from_equity_investments = income_from_equity_investments
+#        self.income_from_equity_investments = income_from_equity_investments
         self.income_tax_expense_benefit = income_tax_expense_benefit
         self.net_income_shareholders = net_income_shareholders
 #       self.extraordary_items_gain_loss = extraordary_items_gain_loss
         self.income_loss = income_loss
         self.net_income_shareholders = net_income_shareholders
 #        self.preferred_stock_dividends = preferred_stock_dividends
-        self.net_income_loss_noncontrolling = net_income_loss_noncontrolling
+#        self.net_income_loss_noncontrolling = net_income_loss_noncontrolling
         self.net_income_parent = net_income_parent
         self.net_income_loss = net_income_loss
         self.other_comprehensive_income = other_comprehensive_income
@@ -795,13 +788,13 @@ class GAAPSerializer(Schema):
     nonoperating_income_loss = fields.Number()
     interest_and_debt_expense = fields.Number()
     income_before_equity_investments = fields.Number()
-    income_from_equity_investments = fields.Number()
+#    income_from_equity_investments = fields.Number()
     income_tax_expense_benefit = fields.Number()
 #   extraordary_items_gain_loss = fields.Number()
     income_loss = fields.Number()
     net_income_shareholders = fields.Number()
 #    preferred_stock_dividends = fields.Number()
-    net_income_loss_noncontrolling = fields.Number()
+#    net_income_loss_noncontrolling = fields.Number()
     net_income_parent = fields.Number()
     net_income_loss = fields.Number()
     other_comprehensive_income = fields.Number()
