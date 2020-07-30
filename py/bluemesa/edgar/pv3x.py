@@ -381,52 +381,6 @@ class XBRLParser(object):
             self.data_processing(comprehensive_income_interest, xbrl,
                                  ignore_errors, logger, context_ids)
 
-        # Cash flow statements #
-        net_cash_flows_operating = \
-            xbrl.find_all(name=re.compile("(us-gaap:netcashprovidedbyusedin\
-                          operatingactivities)", re.IGNORECASE | re.MULTILINE))
-        gaap_obj.net_cash_flows_operating = \
-            self.data_processing(net_cash_flows_operating, xbrl, ignore_errors,
-                                 logger, context_ids)
-
-        net_cash_flows_investing = \
-            xbrl.find_all(name=re.compile("(us-gaap:netcashprovidedbyusedin\
-                          investingactivities)", re.IGNORECASE | re.MULTILINE))
-        gaap_obj.net_cash_flows_investing = \
-            self.data_processing(net_cash_flows_investing, xbrl, ignore_errors,
-                                logger, context_ids)
-
-        net_cash_flows_financing = \
-            xbrl.find_all(name=re.compile("(us-gaap:netcashprovidedbyusedin\
-                          financingactivities)", re.IGNORECASE | re.MULTILINE))
-        gaap_obj.net_cash_flows_financing = \
-            self.data_processing(net_cash_flows_financing, xbrl, ignore_errors,
-                                logger, context_ids)
-
-        net_cash_flows_operating_continuing = \
-            xbrl.find_all(name=re.compile("(us-gaap:netcashprovidedbyusedin\
-                          operatingactivitiescontinuingoperations)",
-                          re.IGNORECASE | re.MULTILINE))
-        gaap_obj.net_cash_operating_continuing = \
-            self.data_processing(net_cash_flows_operating_continuing, xbrl,
-                                 ignore_errors, logger, context_ids)
-
-        net_cash_flows_investing_continuing = \
-            xbrl.find_all(name=re.compile("(us-gaap:netcashprovidedbyusedin\
-                          investingactivitiescontinuingoperations)",
-                          re.IGNORECASE | re.MULTILINE))
-        gaap_obj.net_cash_flows_investing_continuing = \
-            self.data_processing(net_cash_flows_investing_continuing, xbrl,
-                                 ignore_errors, logger, context_ids)
-
-        net_cash_flows_operating_discontinued = \
-            xbrl.find_all(name=re.compile("(us-gaap:cashprovidedbyusedin\
-                          operatingactivitiesdiscontinuedoperations)",
-                          re.IGNORECASE | re.MULTILINE))
-        gaap_obj.net_cash_flows_operating_discontinued = \
-            self.data_processing(net_cash_flows_operating_discontinued, xbrl,
-                                 ignore_errors, logger, context_ids)
-
         common_shares_outstanding = \
             xbrl.find_all(name=re.compile("(us-gaap:commonstockshares\
                           outstanding)",
@@ -695,7 +649,7 @@ class GAAP(object):
                  comprehensive_income=0.0,
                  comprehensive_income_parent=0.0,
                  comprehensive_income_interest=0.0,
-                 net_cash_flows_operating=0.0,
+#                 net_cash_flows_operating=0.0,
                  net_cash_flows_investing=0.0,
                  net_cash_flows_financing=0.0,
                  net_cash_flows_operating_continuing=0.0,
@@ -745,7 +699,7 @@ class GAAP(object):
         self.comprehensive_income = comprehensive_income
         self.comprehensive_income_parent = comprehensive_income_parent
         self.comprehensive_income_interest = comprehensive_income_interest
-        self.net_cash_flows_operating = net_cash_flows_operating
+#        self.net_cash_flows_operating = net_cash_flows_operating
         self.net_cash_flows_investing = net_cash_flows_investing
         self.net_cash_flows_financing = net_cash_flows_financing
         self.net_cash_flows_operating_continuing = \
@@ -753,8 +707,8 @@ class GAAP(object):
         self.net_cash_flows_investing_continuing = \
             net_cash_flows_investing_continuing
 
-        self.net_cash_flows_operating_discontinued = \
-            net_cash_flows_operating_discontinued
+#        self.net_cash_flows_operating_discontinued = \
+#            net_cash_flows_operating_discontinued
 #        self.net_cash_flows_investing_discontinued = \
 #            net_cash_flows_investing_discontinued
         self.net_cash_flows_discontinued = net_cash_flows_discontinued
@@ -801,13 +755,13 @@ class GAAPSerializer(Schema):
     comprehensive_income = fields.Number()
     comprehensive_income_parent = fields.Number()
     comprehensive_income_interest = fields.Number()
-    net_cash_flows_operating = fields.Number()
+#    net_cash_flows_operating = fields.Number()
     net_cash_flows_investing = fields.Number()
     net_cash_flows_financing = fields.Number()
-    net_cash_flows_operating_continuing = fields.Number()
+#    net_cash_flows_operating_continuing = fields.Number()
     net_cash_flows_investing_continuing = fields.Number()
 #    net_cash_flows_financing_continuing = fields.Number()
-    net_cash_flows_operating_discontinued = fields.Number()
+#    net_cash_flows_operating_discontinued = fields.Number()
 #    net_cash_flows_investing_discontinued = fields.Number()
     net_cash_flows_discontinued = fields.Number()
     common_shares_outstanding = fields.Number()
