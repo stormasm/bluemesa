@@ -699,10 +699,12 @@ class XBRLParser(object):
 
         if options['type'] == 'String':
             if len(elements) > 0:
+                    print("type1")
                     return elements[0].text
 
         if options['no_context'] == True:
             if len(elements) > 0 and XBRLParser().is_number(elements[0].text):
+                    print("type2")
                     return elements[0].text
 
         try:
@@ -723,6 +725,7 @@ class XBRLParser(object):
                     and xbrl.precison != attr_precision:
                         xbrl.precision = attr_precision
                 if elements:
+                    print("type3")
                     return XBRLParser().trim_decimals(elements[0].text,
                         int(xbrl.precision))
                 else:
