@@ -539,13 +539,13 @@ class XBRLParser(object):
             self.data_processing(net_cash_flows_operating_discontinued, xbrl,
                                  ignore_errors, logger, context_ids)
 
-        net_cash_flows_investing_discontinued = \
-            xbrl.find_all(name=re.compile("(us-gaap:cashprovidedbyusedin\
-                          investingactivitiesdiscontinuedoperations)",
-                          re.IGNORECASE | re.MULTILINE))
-        gaap_obj.net_cash_flows_investing_discontinued = \
-            self.data_processing(net_cash_flows_investing_discontinued, xbrl,
-                                 ignore_errors, logger, context_ids)
+#        net_cash_flows_investing_discontinued = \
+#            xbrl.find_all(name=re.compile("(us-gaap:cashprovidedbyusedin\
+#                          investingactivitiesdiscontinuedoperations)",
+#                          re.IGNORECASE | re.MULTILINE))
+#        gaap_obj.net_cash_flows_investing_discontinued = \
+#            self.data_processing(net_cash_flows_investing_discontinued, xbrl,
+#                                 ignore_errors, logger, context_ids)
 
         net_cash_flows_discontinued = \
             xbrl.find_all(name=re.compile("(us-gaap:netcashprovidedbyusedin\
@@ -830,7 +830,7 @@ class GAAP(object):
                  net_cash_flows_investing_continuing=0.0,
                  net_cash_flows_financing_continuing=0.0,
                  net_cash_flows_operating_discontinued=0.0,
-                 net_cash_flows_investing_discontinued=0.0,
+#                 net_cash_flows_investing_discontinued=0.0,
                  net_cash_flows_discontinued=0.0,
                  common_shares_outstanding=0.0,
                  common_shares_issued=0.0,
@@ -884,8 +884,8 @@ class GAAP(object):
             net_cash_flows_financing_continuing
         self.net_cash_flows_operating_discontinued = \
             net_cash_flows_operating_discontinued
-        self.net_cash_flows_investing_discontinued = \
-            net_cash_flows_investing_discontinued
+#        self.net_cash_flows_investing_discontinued = \
+#            net_cash_flows_investing_discontinued
         self.net_cash_flows_discontinued = net_cash_flows_discontinued
         self.common_shares_outstanding = common_shares_outstanding
         self.common_shares_issued = common_shares_issued
@@ -937,7 +937,7 @@ class GAAPSerializer(Schema):
     net_cash_flows_investing_continuing = fields.Number()
     net_cash_flows_financing_continuing = fields.Number()
     net_cash_flows_operating_discontinued = fields.Number()
-    net_cash_flows_investing_discontinued = fields.Number()
+#    net_cash_flows_investing_discontinued = fields.Number()
     net_cash_flows_discontinued = fields.Number()
     common_shares_outstanding = fields.Number()
     common_shares_issued = fields.Number()
