@@ -232,70 +232,10 @@ class XBRLParser(object):
             self.data_processing(liabilities, xbrl, ignore_errors,
                 logger, context_ids)
 
-        current_liabilities = \
-            xbrl.find_all(name=re.compile("(us-gaap:)[^s]\
-                          *(currentliabilities)",
-                          re.IGNORECASE | re.MULTILINE))
-        gaap_obj.current_liabilities = \
-            self.data_processing(current_liabilities, xbrl,
-                ignore_errors, logger, context_ids)
-
-        noncurrent_liabilities = \
-            xbrl.find_all(name=re.compile("(us-gaap:)[^s]\
-                          *(noncurrentliabilities)",
-                          re.IGNORECASE | re.MULTILINE))
-        gaap_obj.noncurrent_liabilities = \
-            self.data_processing(noncurrent_liabilities, xbrl,
-                ignore_errors, logger, context_ids)
-
-        commitments_and_contingencies = \
-            xbrl.find_all(name=re.compile("(us-gaap:commitments\
-                          andcontingencies)",
-                          re.IGNORECASE | re.MULTILINE))
-        gaap_obj.commitments_and_contingencies = \
-            self.data_processing(commitments_and_contingencies, xbrl,
-                ignore_errors, logger, context_ids)
-
-        redeemable_noncontrolling_interest = \
-            xbrl.find_all(name=re.compile("(us-gaap:redeemablenoncontrolling\
-                          interestequity)", re.IGNORECASE | re.MULTILINE))
-        gaap_obj.redeemable_noncontrolling_interest = \
-            self.data_processing(redeemable_noncontrolling_interest,
-                xbrl, ignore_errors, logger, context_ids)
-
-        temporary_equity = \
-            xbrl.find_all(name=re.compile("(us-gaap:)[^s]*(temporaryequity)",
-                          re.IGNORECASE | re.MULTILINE))
-        gaap_obj.temporary_equity = \
-            self.data_processing(temporary_equity, xbrl, ignore_errors,
-                logger, context_ids)
-
-        equity = xbrl.find_all(name=re.compile("(us-gaap:)[^s]*(equity)",
-                               re.IGNORECASE | re.MULTILINE))
-        gaap_obj.equity = self.data_processing(equity, xbrl, ignore_errors,
-            logger, context_ids)
-
-        equity_attributable_interest = \
-            xbrl.find_all(name=re.compile("(us-gaap:minorityinterest)",
-                          re.IGNORECASE | re.MULTILINE))
-        equity_attributable_interest += \
-            xbrl.find_all(name=re.compile("(us-gaap:partnerscapitalattributable\
-                          tononcontrollinginterest)",
-                          re.IGNORECASE | re.MULTILINE))
-        gaap_obj.equity_attributable_interest = \
-            self.data_processing(equity_attributable_interest, xbrl,
-                ignore_errors, logger, context_ids)
-
-        equity_attributable_parent = \
-            xbrl.find_all(name=re.compile("(us-gaap:liabilitiesandpartners\
-                          capital)",
-                          re.IGNORECASE | re.MULTILINE))
         stockholders_equity = \
             xbrl.find_all(name=re.compile("(us-gaap:stockholdersequity)",
                           re.IGNORECASE | re.MULTILINE))
-        gaap_obj.equity_attributable_parent = \
-            self.data_processing(equity_attributable_parent, xbrl,
-                ignore_errors, logger, context_ids)
+
         gaap_obj.stockholders_equity = \
             self.data_processing(stockholders_equity, xbrl, ignore_errors,
                 logger, context_ids)
