@@ -295,29 +295,6 @@ class XBRLParser(object):
             self.data_processing(operating_income_loss, xbrl, ignore_errors,
                                  logger, context_ids)
 
-        nonoperating_income_loss = \
-            xbrl.find_all(name=re.compile("(us-gaap:nonoperatingincomeloss)",
-                          re.IGNORECASE | re.MULTILINE))
-        gaap_obj.nonoperating_income_loss = \
-            self.data_processing(nonoperating_income_loss, xbrl,
-                                 ignore_errors, logger, context_ids)
-
-        interest_and_debt_expense = \
-            xbrl.find_all(name=re.compile("(us-gaap:interestanddebtexpense)",
-                          re.IGNORECASE | re.MULTILINE))
-        gaap_obj.interest_and_debt_expense = \
-            self.data_processing(interest_and_debt_expense, xbrl,
-                                 ignore_errors, logger, context_ids)
-
-        income_before_equity_investments = \
-            xbrl.find_all(name=re.compile("(us-gaap:incomelossfromcontinuing"
-                                          "operationsbeforeincometaxes"
-                                          "minorityinterest)",
-                          re.IGNORECASE  | re.MULTILINE))
-        gaap_obj.income_before_equity_investments = \
-            self.data_processing(income_before_equity_investments, xbrl,
-                                 ignore_errors, logger, context_ids)
-
         income_tax_expense_benefit = \
             xbrl.find_all(name=re.compile("(us-gaap:incometaxexpensebenefit)",
                           re.IGNORECASE | re.MULTILINE))
@@ -364,14 +341,6 @@ class XBRLParser(object):
                           "tax)", re.IGNORECASE | re.MULTILINE))
         gaap_obj.comprehensive_income_parent = \
             self.data_processing(comprehensive_income_parent, xbrl,
-                                 ignore_errors, logger, context_ids)
-
-        comprehensive_income_interest = \
-            xbrl.find_all(name=re.compile("(us-gaap:comprehensiveincomenetoftax\
-                          attributabletononcontrollinginterest)",
-                          re.IGNORECASE | re.MULTILINE))
-        gaap_obj.comprehensive_income_interest = \
-            self.data_processing(comprehensive_income_interest, xbrl,
                                  ignore_errors, logger, context_ids)
 
         common_shares_outstanding = \
@@ -626,9 +595,9 @@ class GAAP(object):
                  costs_and_expenses=0.0,
                  other_operating_income=0.0,
                  operating_income_loss=0.0,
-                 nonoperating_income_loss=0.0,
-                 interest_and_debt_expense=0.0,
-                 income_before_equity_investments=0.0,
+#                 nonoperating_income_loss=0.0,
+#                 interest_and_debt_expense=0.0,
+#                 income_before_equity_investments=0.0,
 #                 income_from_equity_investments=0.0,
                  income_tax_expense_benefit=0.0,
 #                extraordary_items_gain_loss=0.0,
@@ -641,7 +610,7 @@ class GAAP(object):
 #                 other_comprehensive_income=0.0,
                  comprehensive_income=0.0,
                  comprehensive_income_parent=0.0,
-                 comprehensive_income_interest=0.0,
+#                 comprehensive_income_interest=0.0,
 #                 net_cash_flows_operating=0.0,
                  net_cash_flows_investing=0.0,
                  net_cash_flows_financing=0.0,
@@ -722,15 +691,15 @@ class GAAPSerializer(Schema):
     costs_and_expenses = fields.Number()
     other_operating_income = fields.Number()
     operating_income_loss = fields.Number()
-    nonoperating_income_loss = fields.Number()
-    interest_and_debt_expense = fields.Number()
-    income_before_equity_investments = fields.Number()
+#    nonoperating_income_loss = fields.Number()
+#    interest_and_debt_expense = fields.Number()
+#    income_before_equity_investments = fields.Number()
     income_loss = fields.Number()
     net_income_shareholders = fields.Number()
     net_income_loss = fields.Number()
     comprehensive_income = fields.Number()
     comprehensive_income_parent = fields.Number()
-    comprehensive_income_interest = fields.Number()
+#    comprehensive_income_interest = fields.Number()
     net_cash_flows_investing = fields.Number()
     net_cash_flows_financing = fields.Number()
     net_cash_flows_investing_continuing = fields.Number()
