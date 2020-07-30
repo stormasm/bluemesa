@@ -661,6 +661,8 @@ class GAAP(object):
                  common_shares_outstanding=0.0,
                  common_shares_issued=0.0,
                  common_shares_authorized=0.0):
+
+
         self.assets = assets
         self.current_assets = current_assets
         self.non_current_assets = non_current_assets
@@ -668,37 +670,25 @@ class GAAP(object):
         self.liabilities = liabilities
         self.current_liabilities = current_liabilities
         self.noncurrentLiabilities = noncurrent_liabilities
-        self.commitments_and_contingencies = commitments_and_contingencies
-        self.redeemable_noncontrolling_interest = \
-            redeemable_noncontrolling_interest
-        self.temporary_equity = temporary_equity
+
         self.equity = equity
-        self.equity_attributable_interest = equity_attributable_interest
-        self.equity_attributable_parent = equity_attributable_parent
+
         self.stockholders_equity = stockholders_equity
         self.revenue = revenue
         self.cost_of_revenue = cost_of_revenue
         self.gross_profit = gross_profit
         self.costs_and_expenses = costs_and_expenses
-        self.other_operating_income = other_operating_income
-        self.nonoperating_income_loss = nonoperating_income_loss
-        self.interest_and_debt_expense = interest_and_debt_expense
-        self.income_before_equity_investments = \
-            income_before_equity_investments
-#        self.income_from_equity_investments = income_from_equity_investments
+
         self.income_tax_expense_benefit = income_tax_expense_benefit
-        self.net_income_shareholders = net_income_shareholders
-#       self.extraordary_items_gain_loss = extraordary_items_gain_loss
         self.income_loss = income_loss
         self.net_income_shareholders = net_income_shareholders
-#        self.preferred_stock_dividends = preferred_stock_dividends
-#        self.net_income_loss_noncontrolling = net_income_loss_noncontrolling
         self.net_income_parent = net_income_parent
         self.net_income_loss = net_income_loss
-        self.other_comprehensive_income = other_comprehensive_income
-        self.comprehensive_income = comprehensive_income
-        self.comprehensive_income_parent = comprehensive_income_parent
-        self.comprehensive_income_interest = comprehensive_income_interest
+
+#        self.other_comprehensive_income = other_comprehensive_income
+#        self.comprehensive_income = comprehensive_income
+#        self.comprehensive_income_parent = comprehensive_income_parent
+#        self.comprehensive_income_interest = comprehensive_income_interest
 #        self.net_cash_flows_operating = net_cash_flows_operating
         self.net_cash_flows_investing = net_cash_flows_investing
         self.net_cash_flows_financing = net_cash_flows_financing
