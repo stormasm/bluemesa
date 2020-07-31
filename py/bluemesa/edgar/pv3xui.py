@@ -5,7 +5,6 @@ def parse(file):
     print("\nData for ",file)
     xbrl_parser = XBRLParser()
     xbrl = xbrl_parser.parse(open(file))
-    #gaap_obj = xbrl_parser.parseGAAP(xbrl)
     gaap_obj = xbrl_parser.parseGAAP(xbrl, doc_date="20200331", context="current", ignore_errors=0)
     serializer = GAAPSerializer()
     result = serializer.dump(gaap_obj)
