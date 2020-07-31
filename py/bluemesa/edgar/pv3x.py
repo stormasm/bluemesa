@@ -274,13 +274,6 @@ class XBRLParser(object):
             self.data_processing(operating_expenses, xbrl, ignore_errors,
                                  logger, context_ids)
 
-        operating_income_loss = \
-            xbrl.find_all(name=re.compile("(us-gaap:otheroperatingincome)",
-                          re.IGNORECASE | re.MULTILINE))
-        gaap_obj.operating_income_loss = \
-            self.data_processing(operating_income_loss, xbrl, ignore_errors,
-                                 logger, context_ids)
-
         income_tax_expense_benefit = \
             xbrl.find_all(name=re.compile("(us-gaap:incometaxexpensebenefit)",
                           re.IGNORECASE | re.MULTILINE))
@@ -503,7 +496,6 @@ class GAAP(object):
                  revenue=0.0,
                  cost_of_revenue=0.0,
                  gross_profit=0.0,
-                 operating_income_loss=0.0,
                  income_tax_expense_benefit=0.0,
                  income_loss=0.0,
                  net_income_parent=0.0,
@@ -515,10 +507,7 @@ class GAAP(object):
                  net_cash_flows_operating_continuing=0.0,
                  net_cash_flows_investing_continuing=0.0,
                  net_cash_flows_operating_discontinued=0.0,
-                 common_shares_outstanding=0.0,
-                 common_shares_issued=0.0,
-                 common_shares_authorized=0.0):
-
+                 common_shares_outstanding=0.0):
 
         self.assets = assets
         self.current_assets = current_assets
@@ -541,8 +530,6 @@ class GAAP(object):
         self.net_income_loss = net_income_loss
 
         self.common_shares_outstanding = common_shares_outstanding
-        self.common_shares_issued = common_shares_issued
-        self.common_shares_authorized = common_shares_authorized
 
 
 class GAAPSerializer(Schema):
@@ -564,7 +551,6 @@ class GAAPSerializer(Schema):
     cost_of_revenue = fields.Number()
     gross_profit = fields.Number()
     operating_expenses = fields.Number()
-    operating_income_loss = fields.Number()
     income_loss = fields.Number()
     net_income_loss = fields.Number()
     comprehensive_income = fields.Number()
@@ -573,8 +559,6 @@ class GAAPSerializer(Schema):
     net_cash_flows_financing = fields.Number()
     net_cash_flows_investing_continuing = fields.Number()
     common_shares_outstanding = fields.Number()
-    common_shares_issued = fields.Number()
-    common_shares_authorized = fields.Number()
 
 # Base Custom object
 class Custom(object):
