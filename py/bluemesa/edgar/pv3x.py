@@ -329,74 +329,7 @@ class XBRLParser(object):
             self.data_processing(common_shares_outstanding, xbrl,
                                  ignore_errors, logger, context_ids)
 
-        common_shares_issued = \
-            xbrl.find_all(name=re.compile("(us-gaap:commonstockshares\
-                          issued)",
-                          re.IGNORECASE | re.MULTILINE))
-        gaap_obj.common_shares_issued = \
-            self.data_processing(common_shares_issued, xbrl,
-                                 ignore_errors, logger, context_ids)
-
-        common_shares_authorized = \
-            xbrl.find_all(name=re.compile("(us-gaap:commonstockshares\
-                          authorized)",
-                          re.IGNORECASE | re.MULTILINE))
-        gaap_obj.common_shares_authorized = \
-            self.data_processing(common_shares_authorized, xbrl,
-                                 ignore_errors, logger, context_ids)
-
         return gaap_obj
-
-    @classmethod
-    def parseDEI(self,
-                 xbrl,
-                 ignore_errors=0):
-        """
-        Parse DEI from our XBRL soup and return a DEI object.
-        """
-        dei_obj = DEI()
-
-        if ignore_errors == 2:
-            logging.basicConfig(filename='/tmp/xbrl.log',
-                level=logging.ERROR,
-                format='%(asctime)s %(levelname)s %(name)s %(message)s')
-            logger = logging.getLogger(__name__)
-        else:
-            logger = None
-
-        trading_symbol = xbrl.find_all(name=re.compile("(dei:tradingsymbol)",
-            re.IGNORECASE | re.MULTILINE))
-        dei_obj.trading_symbol = \
-            self.data_processing(trading_symbol, xbrl,
-                                 ignore_errors, logger,
-                                 options={'type': 'String',
-                                          'no_context': True})
-
-        company_name = xbrl.find_all(name=re.compile("(dei:entityregistrantname)",
-            re.IGNORECASE | re.MULTILINE))
-        dei_obj.company_name = \
-            self.data_processing(company_name, xbrl,
-                                 ignore_errors, logger,
-                                 options={'type': 'String',
-                                          'no_context': True})
-
-        shares_outstanding = xbrl.find_all(name=re.compile("(dei:entitycommonstocksharesoutstanding)",
-            re.IGNORECASE | re.MULTILINE))
-        dei_obj.shares_outstanding = \
-            self.data_processing(shares_outstanding, xbrl,
-                                 ignore_errors, logger,
-                                 options={'type': 'Number',
-                                          'no_context': True})
-
-        public_float = xbrl.find_all(name=re.compile("(dei:entitypublicfloat)",
-            re.IGNORECASE | re.MULTILINE))
-        dei_obj.public_float = \
-            self.data_processing(public_float, xbrl,
-                                 ignore_errors, logger,
-                                 options={'type': 'Number',
-                                          'no_context': True})
-
-        return dei_obj
 
     @classmethod
     def parseCustom(self,
@@ -631,45 +564,17 @@ class GAAPSerializer(Schema):
     cost_of_revenue = fields.Number()
     gross_profit = fields.Number()
     operating_expenses = fields.Number()
-#    costs_and_expenses = fields.Number()
-#    other_operating_income = fields.Number()
     operating_income_loss = fields.Number()
-#    nonoperating_income_loss = fields.Number()
-#    interest_and_debt_expense = fields.Number()
-#    income_before_equity_investments = fields.Number()
     income_loss = fields.Number()
-#    net_income_shareholders = fields.Number()
     net_income_loss = fields.Number()
     comprehensive_income = fields.Number()
     comprehensive_income_parent = fields.Number()
-#    comprehensive_income_interest = fields.Number()
     net_cash_flows_investing = fields.Number()
     net_cash_flows_financing = fields.Number()
     net_cash_flows_investing_continuing = fields.Number()
     common_shares_outstanding = fields.Number()
     common_shares_issued = fields.Number()
     common_shares_authorized = fields.Number()
-
-
-# Base DEI object
-class DEI(object):
-    def __init__(self,
-                 trading_symbol='',
-                 company_name='',
-                 shares_outstanding=0.0,
-                 public_float=0.0):
-        self.trading_symbol = trading_symbol
-        self.company_name = company_name
-        self.shares_outstanding = shares_outstanding
-        self.public_float = public_float
-
-
-class DEISerializer(Schema):
-    trading_symbol = fields.String()
-    company_name = fields.String()
-    shares_outstanding = fields.Number()
-    public_float = fields.Number()
-
 
 # Base Custom object
 class Custom(object):

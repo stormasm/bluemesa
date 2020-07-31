@@ -1,5 +1,5 @@
 import os
-from bluemesa.edgar.pv3x import XBRLParser, GAAPSerializer, DEISerializer
+from bluemesa.edgar.pv3x import XBRLParser, GAAPSerializer
 
 def parse(file):
     print("\nData for ",file)
