@@ -274,20 +274,6 @@ class XBRLParser(object):
             self.data_processing(operating_expenses, xbrl, ignore_errors,
                                  logger, context_ids)
 
-        costs_and_expenses = \
-            xbrl.find_all(name=re.compile("(us-gaap:)[^s]*(costsandexpenses)",
-                          re.IGNORECASE | re.MULTILINE))
-        gaap_obj.costs_and_expenses = \
-            self.data_processing(costs_and_expenses, xbrl, ignore_errors,
-                                 logger, context_ids)
-
-        other_operating_income = \
-            xbrl.find_all(name=re.compile("(us-gaap:otheroperatingincome)",
-                          re.IGNORECASE | re.MULTILINE))
-        gaap_obj.other_operating_income = \
-            self.data_processing(other_operating_income, xbrl, ignore_errors,
-                                 logger, context_ids)
-
         operating_income_loss = \
             xbrl.find_all(name=re.compile("(us-gaap:otheroperatingincome)",
                           re.IGNORECASE | re.MULTILINE))
@@ -584,8 +570,8 @@ class GAAP(object):
                  revenue=0.0,
                  cost_of_revenue=0.0,
                  gross_profit=0.0,
-                 costs_and_expenses=0.0,
-                 other_operating_income=0.0,
+#                 costs_and_expenses=0.0,
+#                 other_operating_income=0.0,
                  operating_income_loss=0.0,
 #                 nonoperating_income_loss=0.0,
 #                 interest_and_debt_expense=0.0,
@@ -631,7 +617,7 @@ class GAAP(object):
         self.revenue = revenue
         self.cost_of_revenue = cost_of_revenue
         self.gross_profit = gross_profit
-        self.costs_and_expenses = costs_and_expenses
+#        self.costs_and_expenses = costs_and_expenses
 
         self.income_tax_expense_benefit = income_tax_expense_benefit
         self.income_loss = income_loss
@@ -680,8 +666,8 @@ class GAAPSerializer(Schema):
     cost_of_revenue = fields.Number()
     gross_profit = fields.Number()
     operating_expenses = fields.Number()
-    costs_and_expenses = fields.Number()
-    other_operating_income = fields.Number()
+#    costs_and_expenses = fields.Number()
+#    other_operating_income = fields.Number()
     operating_income_loss = fields.Number()
 #    nonoperating_income_loss = fields.Number()
 #    interest_and_debt_expense = fields.Number()
