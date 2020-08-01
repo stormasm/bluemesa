@@ -10,7 +10,7 @@ def parse(file):
 
 #   I want this to work so I do not need to know the date for every filing...
 #   A blank doc_date should get the current date...
-    gaap_obj = xbrl_parser.parseGAAP(xbrl, context="current", ignore_errors=0)
+    gaap_obj = xbrl_parser.parseGAAP(xbrl, doc_date="20191231")
 
     serializer = GAAPSerializer()
     result = serializer.dump(gaap_obj)
