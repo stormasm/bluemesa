@@ -31,13 +31,16 @@ The fundamental grouping set is symbols. Symbols cans be stored in
   * symbol-set-sdy
   * symbol-set-pff
 
-### symbol files with one line per symbol
+### Text files with one line per symbol
 
-### json files with each group as a set of symbols
+### Json files
 
-Right now I am grouping data by indices such as the sp500
-Grouping data by etfs such as pff and iwv which is the russell 3000 group
-Grouping data by market cap which is data downloaded from green.
+### Example Symbol Sets
+
+  * Sp500
+  * PFF
+  * IWV which is the Russell 3000 group
+  * Market cap groups
 
 ### To run the screens
 
