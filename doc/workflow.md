@@ -2,24 +2,27 @@
 ### Symbol Sets
 
 **Bluemesa's** fundamental organizing principle is the symbol set.
-Symbol sets are organized around indexes, etf's and guiding principles
+Symbol sets are organized around equity indices, exchange traded funds (ETF) and guiding principles
 including the
 [SP500 Dividend Aristocrats](https://en.wikipedia.org/wiki/S%26P_500_Dividend_Aristocrats)
 
 ### Getting fundamental data
 
-So one of the issues is grouping the data so you can compare
-and contrast across different groups of companies or symbols.
+One of Bluemesa's core strengths is the API interface we use
+to store and retrieve equity data.  Given a symbol set for
+a group of stocks, one can then go out and retrieve fundamental
+data.  For example purposes, this data comes from two sources.
 
-Initially you have to get the data from somewhere...
+  * [Yahoo Finance](https://finance.yahoo.com/)
+  * [Edgar](https://www.sec.gov/edgar.shtml)
 
-For now I am getting the data from yahoo.
-Eventually it will come from other places too like project edgar.
+### Symbol set data representations
 
-### Grouping data in many different ways
+The fundamental grouping set is symbols. Symbols cans be stored in
 
-The fundamental grouping set is symbols.   
-The symbol groups are in
+  * Redis
+  * Text files with one symbol per line
+  * Json files with the symbol grouping name as the key and the symbols as the values
 
 ### Redis sets with the key name delineating the group
 
@@ -62,3 +65,6 @@ to see what files it has already downloaded...
 reason this is here is because the program currently is not
 bullet proof so it crashes sometimes.
 so it has to be re-run until all the data is retrieved.
+
+### References
+[Wikipedia Edgar](https://en.wikipedia.org/wiki/EDGAR)
