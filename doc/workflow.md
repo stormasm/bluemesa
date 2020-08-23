@@ -14,9 +14,16 @@ Eventually it will come from other places too like project edgar.
 The fundamental grouping set is symbols.   
 The symbol groups are in
 
-  * redis sets with the key name delineating the group
-  * symbol files with one line per symbol
-  * json files with each group as a set of symbols
+### Redis sets with the key name delineating the group
+
+  * symbol-set-aristocrats
+  * symbol-set-sp500
+  * symbol-set-sdy
+  * symbol-set-pff
+
+### symbol files with one line per symbol
+
+### json files with each group as a set of symbols
 
 Right now I am grouping data by indices such as the sp500
 Grouping data by etfs such as pff and iwv which is the russell 3000 group
