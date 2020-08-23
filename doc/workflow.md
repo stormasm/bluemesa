@@ -1,4 +1,11 @@
 
+### Symbol Sets
+
+**Bluemesa's** fundamental organizing principle is the symbol set.
+Symbol sets are organized around indexes, etf's and guiding principles
+including the
+[SP500 Dividend Aristocrats](https://en.wikipedia.org/wiki/S%26P_500_Dividend_Aristocrats)
+
 ### Getting fundamental data
 
 So one of the issues is grouping the data so you can compare
