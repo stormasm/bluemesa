@@ -21,3 +21,6 @@ As of Friday July 10, 2020
 | 01 | 03 | 832 |
 | 01 | 05 | 1182 |
 -| - | - |
+
+According to a Barron's article I read recently there are just shy of 2000
+companies trading on the Nasdaq or NYSE with valuations above 1B.
