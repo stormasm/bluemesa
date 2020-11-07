@@ -18,10 +18,12 @@ def parse(file):
 
 if __name__ == "__main__":
 
-    f1 = 'ubnt-20200331_htm.xml'
-    f2 = 'ubnt-20191231_htm.xml'
+    f1 = 'ubnt-20200930_htm.xml'
+    f2 = 'ubnt-20200630_htm.xml'
+    f3 = 'ubnt-20200331_htm.xml'
+    f4 = 'ubnt-20191231_htm.xml'
 
     path = os.environ['BMTOP']
-    path = path + '/equity-data/edgar/'
-    path = path + f2
+    path = path + '/edgar-data/ubnt/'
+    path = path + f4
     parse(path)
