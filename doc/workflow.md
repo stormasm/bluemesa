@@ -59,6 +59,10 @@ combined into one json file.
 yahoo_fin/getfun.py
 ```
 
+when you run getfun.py if no symbols get printed out
+you have to remove the **symbol-check**-groupname
+from redis.
+
 this takes in a symbol file which has one symbol per line
 and writes out a csv file with the symbol and date.
 the csv file contains the yahoo fundamental data.
