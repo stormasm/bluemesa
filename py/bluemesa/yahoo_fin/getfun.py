@@ -1,5 +1,6 @@
 import datetime
 import os
+import argparse
 from yahoo_fin.stock_info import get_stats
 from bluemesa.util import lineutil
 from bluemesa.redis import util
@@ -8,14 +9,10 @@ from bluemesa.redis import util
 ## Just enter a filename without the .txt extension
 ## from the directory symbol_dir
 
-groupname = 'top'
-filename = groupname + '.txt'
 path = os.environ['BMTOP']
 
 ## This is the directory where symbol files are located
 symbol_dir  = path + '/bluemesa/config/symbols/'
-## This is the actual symbol file name
-symbol_file = symbol_dir + filename
 
 ## This is the base directory of where files get written to
 base_pathout = path + '/bluemesa/tmp/fun/in/'
@@ -60,7 +57,15 @@ def process(symbols,path,key):
 
 if __name__ == "__main__":
 
-    ## This takes a symbol filename path and returns a set of symbols
+    parser = argparse.ArgumentParser()
+    parser.add_argument("groupname")
+    args = parser.parse_args()
+    groupname = args.groupname
+    filename = groupname + '.txt'
+
+    # This is the actual symbol file name
+    symbol_file = symbol_dir + filename
+
     symbols = lineutil.get_lines_as_set(symbol_file)
     path_out = mkdir_ifnothere(base_pathout,groupname)
     redis_check_key = "symbol-check-" + groupname
