@@ -1,0 +1,4 @@
+ibm
+aapl
+msft
+amzn
