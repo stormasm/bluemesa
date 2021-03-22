@@ -43,3 +43,7 @@
 ## Recent IPO's
 
 * [Nasdaq IPO Calendar](https://www.nasdaq.com/market-activity/ipos)
+
+### Youtube
+
+* [Phil Town: What is Free Cash Flow ?](https://www.youtube.com/watch?v=xxQcdk2LvbA)
