@@ -8,6 +8,5 @@
 ### Aswath Damodaran
 
 * [Home](https://www.youtube.com/c/AswathDamodaranonValuation/featured)
-
 * [Session 1: Introduction to Valuation](https://www.youtube.com/watch?v=znmQ7oMiQrM)
 * [Session 2: Intrinsic Value - Foundation](https://www.youtube.com/watch?v=8vYQpWXQ5hE)
