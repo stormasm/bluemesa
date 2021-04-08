@@ -1,4 +1,11 @@
 
+### How to get up and running with python and edgar parsing
+
+```
+alias bme='cd /j/tmp32/bluemesa/py/bluemesa/edgar'
+py pv4xui.py
+```
+
 https://github.com/greedo/python-xbrl
 
 ### Edgar Searches by Company Symbol
