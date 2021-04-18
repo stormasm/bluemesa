@@ -16,7 +16,7 @@ git clone this repository
 
 ```
 cd bluemesa/py/yahoo_fin
-python getfun.py
+python getfun.py top
 ```
 
 Now check and make sure the data written to **bluemesa/tmp** looks good.   
