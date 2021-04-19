@@ -24,9 +24,9 @@ def write_schema_to_redis(path):
         funreader = csv.reader(csvfile, delimiter=',')
         # do not read the first line of the csv file
         next(funreader)
-        for row in funreader:
-            print(row[0],row[2])
-            write_data_to_redis_list(rediskey,row[0],row[2])
+        for column in funreader:
+            print(column[0],column[2])
+            write_data_to_redis_list(rediskey,column[0],column[2])
 
 if __name__ == "__main__":
     path = os.environ['BMTOP']
