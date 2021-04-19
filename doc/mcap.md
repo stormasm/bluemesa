@@ -1,4 +1,14 @@
 
+### Tech companies
+
+##### 100B - 1T
+
+adbe,crm,ibm,intu,pypl,shop,sq
+
+##### 50B - 100B
+
+adp,fis,fisv,gpn,snow,team,twlo,zm
+
 ### Number of companies in market cap range
 
 As of Friday July 10, 2020
