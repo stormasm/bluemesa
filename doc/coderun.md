@@ -27,9 +27,10 @@ python funlist.py
 python funschema.py
 ```
 
-Now bring up a redis-client and run the command
+Now bring up a redis-client and run the commands
 
 ```
+select 1
 keys *
 ```
 
