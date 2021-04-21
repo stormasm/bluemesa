@@ -6,7 +6,8 @@ import re
 
 path = os.environ['BMTOP']
 #path = path + '/equity-fun/sp500/data/20-07-12'
-path = path + '/equity-fun/mcap/mcap-g90'
+#path = path + '/equity-fun/mcap/mcap-g90'
+path = path + '/bluemesa/tmp/fun/in/top'
 
 def modify_array_values(input):
     arr = []
