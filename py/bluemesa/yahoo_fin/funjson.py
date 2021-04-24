@@ -48,6 +48,7 @@ if __name__ == "__main__":
     for file in files:
         filename = os.path.join(path, file)
         d = get_dict(filename)
+        # this creates an array of dicts
         arr.append(d)
     myj = json.dumps(arr)
     print(myj)
