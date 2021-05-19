@@ -5,6 +5,8 @@
 
 * [Financial Statements: A Beginner's Guide](https://www.causal.app/blog/whats-a-financial-statement) [[Hn Ref](https://news.ycombinator.com/item?id=23825606)]
 
+* [Profit Margin](https://www.investopedia.com/ask/answers/031815/what-formula-calculating-profit-margins.asp)
+
 #### Cash Flow
 
 * [Understanding the Cash Flow Statement](https://www.investopedia.com/investing/what-is-a-cash-flow-statement)
