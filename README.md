@@ -1,5 +1,26 @@
 
-[Documentation for the BlueMesa software suite](./doc/Readme.md)
+Bluemesa is in transition here is the way to run the code for now.
+
+### Download the data
+
+[yahoo_fin_examples](https://github.com/stormasm/yahoo_fin_examples/tree/main/v00)
+
+```
+python getfun.py test
+python getquote.py test
+```
+
+Check out the code in these files for the location of the symbol files...
+
+### Process the data
+
+[python-examples](https://github.com/stormasm/python-examples/tree/master/pandas)
+
+```
+python selectbuild.py test
+```
+
+### Installation Instructions Prior to Running above Steps
 
 This code requires that you have
 [redis](http://redis.io)
@@ -11,3 +32,7 @@ Set an environment variable **BMTOP**
 cd into BMTOP
 git clone this repository
 ```
+
+### Legacy
+
+[Documentation for the BlueMesa software suite](./doc/Readme.md)
