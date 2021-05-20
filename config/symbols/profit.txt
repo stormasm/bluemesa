@@ -1,0 +1,9 @@
+avgo
+cboe
+cme
+fis
+gpn
+ma
+psa
+v
+vrsn
